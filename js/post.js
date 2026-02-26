@@ -1,42 +1,47 @@
 import { db } from "./firebase.js";
-import {
-  collection, getDocs, query, where,
-  addDoc
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { collection, getDocs, query, where }
+from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const params = new URLSearchParams(window.location.search);
 const slug = params.get("slug");
 
-const q = query(collection(db,"posts"),
-  where("slug","==",slug));
+async function loadPost(){
 
-const snapshot = await getDocs(q);
+  const q = query(collection(db,"posts"),
+    where("slug","==",slug));
 
-snapshot.forEach(doc=>{
-  const p = doc.data();
+  const snapshot = await getDocs(q);
 
-  document.title = p.title + " | AutomateScale";
-  document.getElementById("title").innerText = p.title;
-  document.getElementById("articleImage").innerHTML =
-    `<img src="${p.image}">`;
-  document.getElementById("content").innerHTML = p.content;
-});
+  snapshot.forEach(doc=>{
+    const post = doc.data();
 
-/* COMMENTS */
-const commentBtn = document.getElementById("commentBtn");
+    document.title = post.title + " | AutomateScale";
 
-commentBtn.addEventListener("click", async ()=>{
+    document.getElementById("title").innerText = post.title;
+    document.getElementById("meta").innerText = post.meta;
+    document.getElementById("featuredImage").src =
+      post.image || "https://via.placeholder.com/1200x600";
+    document.getElementById("content").innerHTML = post.content;
 
-  const name = document.getElementById("name").value;
-  const text = document.getElementById("commentText").value;
-
-  await addDoc(collection(db,"comments"),{
-    slug,
-    name,
-    text,
-    date:new Date().toISOString()
+    loadRelated(post.category);
   });
 
-  alert("Comment posted");
-  location.reload();
-});
+  (adsbygoogle = window.adsbygoogle || []).push({});
+}
+
+async function loadRelated(category){
+
+  const snapshot = await getDocs(collection(db,"posts"));
+  let html = "";
+
+  snapshot.forEach(doc=>{
+    const post = doc.data();
+    if(post.category === category && post.slug !== slug){
+      html += `<div><a href="post.html?slug=${post.slug}">${post.title}</a></div>`;
+    }
+  });
+
+  document.getElementById("related").innerHTML = html;
+}
+
+loadPost();
