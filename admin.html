@@ -1,29 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="CSS/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard | AutomateScale</title>
+<link rel="stylesheet" href="css/style.css">
+<script type="module" src="js/admin.js"></script>
 </head>
 <body>
 
-<div class="container">
-  <h2>Admin</h2>
+<header class="site-header">
+  <div class="logo">AutomateScale</div>
+  <nav>
+    <a href="index.html">Home</a>
+  </nav>
+</header>
 
-  <input id="title" placeholder="Title"><br><br>
-  <input id="meta" placeholder="Meta description"><br><br>
-  <textarea id="content" rows="10"></textarea><br><br>
+<section class="dashboard">
+  <h2>Create Article</h2>
+
+  <input id="title" placeholder="Title">
+  <input id="meta" placeholder="Meta description">
+  <input id="image" placeholder="Featured Image URL">
+
+  <select id="category"></select>
+
+  <textarea id="content" rows="10" placeholder="Write article..."></textarea>
 
   <select id="status">
     <option value="draft">Draft</option>
     <option value="published">Publish</option>
-  </select><br><br>
+  </select>
 
-  <!-- IMPORTANT: remove onclick -->
-  <button id="saveBtn">Save</button>
+  <button id="saveBtn">Publish</button>
 
-</div>
+  <hr>
 
-<!-- IMPORTANT: load from js folder -->
-<script type="module" src="js/admin.js"></script>
+  <h2>All Posts</h2>
+  <div id="postList"></div>
+</section>
 
 </body>
 </html>
