@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://automatescale.vercel.app/sitemap.xml
