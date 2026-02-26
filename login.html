@@ -1,24 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
 <script type="module">
-import { auth } from "./js/firebase.js";
-import { signInWithEmailAndPassword }
+import { auth } from "/js/firebase.js";
+import { signInWithEmailAndPassword } 
 from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 window.login = async function(){
-await signInWithEmailAndPassword(
-auth,
-email.value,
-pass.value
-);
-window.location="admin.html";
-}
-</script>
-</head>
-<body>
-<input id="email">
-<input id="pass" type="password">
-<button onclick="login()">Login</button>
-</body>
-</html>
+  try {
+    await signInWithEmailAndPassword(
+      auth,
+      document.getElementById("email").value,
+      document.getElement
