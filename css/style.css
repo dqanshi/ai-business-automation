@@ -33,6 +33,21 @@ nav a:hover {
   color: #2563eb;
 }
 
+.small-hero {
+  padding: 60px 20px;
+}
+
+.article {
+  max-width: 800px;
+  margin: 40px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  line-height: 1.7;
+}
+
+
 /* Hero Section */
 .hero {
   text-align: center;
