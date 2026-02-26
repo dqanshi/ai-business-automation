@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="css/style.css">
-<script type="module" src="js/admin.js"></script>
+  <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
+
 <div class="container">
-<h2>Admin</h2>
+  <h2>Admin</h2>
 
-<input id="title" placeholder="Title"><br><br>
-<input id="meta" placeholder="Meta description"><br><br>
-<textarea id="content" rows="10"></textarea><br><br>
+  <input id="title" placeholder="Title"><br><br>
+  <input id="meta" placeholder="Meta description"><br><br>
+  <textarea id="content" rows="10"></textarea><br><br>
 
-<select id="status">
-<option value="draft">Draft</option>
-<option value="published">Publish</option>
-</select><br><br>
+  <select id="status">
+    <option value="draft">Draft</option>
+    <option value="published">Publish</option>
+  </select><br><br>
 
-<button onclick="publish()">Save</button>
+  <!-- IMPORTANT: remove onclick -->
+  <button id="saveBtn">Save</button>
 
 </div>
+
+<!-- IMPORTANT: load from js folder -->
+<script type="module" src="js/admin.js"></script>
+
 </body>
 </html>
