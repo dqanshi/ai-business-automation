@@ -5,6 +5,29 @@ body{
   color:#111;
 }
 
+.dark {
+  background:#111827;
+  color:white;
+}
+
+.dark .site-header{
+  background:#1f2937;
+}
+
+.dark .card{
+  background:#1f2937;
+  color:white;
+}
+
+.dark .article{
+  background:#1f2937;
+  color:white;
+}
+
+.dark footer{
+  background:#000;
+}
+
 .site-header{
   display:flex;
   justify-content:space-between;
