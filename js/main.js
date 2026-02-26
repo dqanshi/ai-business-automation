@@ -4,27 +4,77 @@ from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const container = document.getElementById("posts");
 
-const snapshot = await getDocs(collection(db,"posts"));
+/* ===============================
+   LOAD POSTS
+================================ */
+async function loadPosts() {
 
-snapshot.forEach(doc=>{
-  const post = doc.data();
+  container.innerHTML = "";
 
-  if(post.status==="published"){
-    container.innerHTML += `
+  const snapshot = await getDocs(collection(db, "posts"));
+
+  snapshot.forEach(doc => {
+    const post = doc.data();
+
+    if (post.status === "published") {
+
+      const image = post.image
+        ? post.image
+        : "https://via.placeholder.com/800x400?text=AutomateScale";
+
+      const meta = post.meta ? post.meta : "";
+
+      const slug = post.slug
+        ? post.slug
+        : doc.id; // fallback if slug missing
+
+      container.innerHTML += `
+        <div class="card">
+          <img src="${image}" alt="${post.title}">
+          
+          <h2>
+            <a href="post.html?slug=${slug}">
+              ${post.title}
+            </a>
+          </h2>
+
+          <p>${meta}</p>
+        </div>
+      `;
+    }
+  });
+
+  // If no posts
+  if (container.innerHTML.trim() === "") {
+    container.innerHTML = `
       <div class="card">
-        <img src="${post.image}">
-        <h2>
-          <a href="post.html?slug=${post.slug}">
-            ${post.title}
-          </a>
-        </h2>
-        <p>${post.meta}</p>
-        <span class="category">${post.category}</span>
+        <h3>No articles yet.</h3>
       </div>
     `;
   }
-});
+}
 
-window.toggleDark = function(){
-  document.body.classList.toggle("dark");
+loadPosts();
+
+
+/* ===============================
+   DARK MODE TOGGLE
+================================ */
+const toggleBtn = document.getElementById("darkToggle");
+
+if (toggleBtn) {
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+
+    if (document.body.classList.contains("dark")) {
+      localStorage.setItem("theme", "dark");
+    } else {
+      localStorage.setItem("theme", "light");
+    }
+  });
+}
+
+// Load saved theme
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark");
 }
