@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login</title>
+  <title>Admin Login</title>
 </head>
 <body>
 
@@ -9,14 +9,14 @@
 
 <input id="email" type="email" placeholder="Email"><br><br>
 <input id="pass" type="password" placeholder="Password"><br><br>
-<button onclick="login()">Login</button>
+<button id="loginBtn">Login</button>
 
 <script type="module">
-import { auth } from "./firebase.js";
+import { auth } from "./js/firebase.js";
 import { signInWithEmailAndPassword } 
 from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
-window.login = async function(){
+document.getElementById("loginBtn").addEventListener("click", async () => {
   try {
     await signInWithEmailAndPassword(
       auth,
@@ -27,11 +27,11 @@ window.login = async function(){
     alert("Login successful");
     window.location.href = "admin.html";
 
-  } catch(error) {
+  } catch (error) {
     alert(error.message);
   }
-}
+});
 </script>
 
 </body>
-</html>
+</html></html>
