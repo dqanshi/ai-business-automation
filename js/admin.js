@@ -1,26 +1,66 @@
 import { db } from "./firebase.js";
-import { collection, addDoc }
-from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import {
+  collection, addDoc, getDocs,
+  deleteDoc, doc, updateDoc
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-document.getElementById("saveBtn").addEventListener("click", async () => {
-  try {
+const saveBtn = document.getElementById("saveBtn");
+const postList = document.getElementById("postList");
+const categorySelect = document.getElementById("category");
 
-    const title = document.getElementById("title").value;
-    const meta = document.getElementById("meta").value;
-    const content = document.getElementById("content").value;
-    const status = document.getElementById("status").value;
+loadCategories();
+loadPosts();
 
-    await addDoc(collection(db,"posts"),{
-      title,
-      meta,
-      content,
-      status,
-      date: new Date().toISOString()
-    });
+saveBtn.addEventListener("click", async () => {
 
-    alert("Saved successfully");
+  const title = document.getElementById("title").value;
+  const meta = document.getElementById("meta").value;
+  const content = document.getElementById("content").value;
+  const image = document.getElementById("image").value;
+  const status = document.getElementById("status").value;
+  const category = categorySelect.value;
 
-  } catch (error) {
-    alert(error.message);
-  }
+  const slug = title.toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+
+  await addDoc(collection(db,"posts"),{
+    title, meta, content, image,
+    status, category, slug,
+    date: new Date().toISOString()
+  });
+
+  alert("Post published");
+  location.reload();
 });
+
+async function loadPosts(){
+  const snapshot = await getDocs(collection(db,"posts"));
+
+  snapshot.forEach(d => {
+    const p = d.data();
+
+    postList.innerHTML += `
+      <div class="admin-card">
+        <strong>${p.title}</strong>
+        <button onclick="deletePost('${d.id}')">Delete</button>
+      </div>
+    `;
+  });
+}
+
+window.deletePost = async function(id){
+  await deleteDoc(doc(db,"posts",id));
+  location.reload();
+}
+
+async function loadCategories(){
+  const snap = await getDocs(collection(db,"categories"));
+  snap.forEach(d=>{
+    categorySelect.innerHTML += `
+      <option value="${d.data().name}">
+        ${d.data().name}
+      </option>
+    `;
+  });
+}
