@@ -1,30 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">AutomateScale</title>
+<meta name="robots" content="max-image-preview:large">
 <link rel="stylesheet" href="css/style.css">
+
+<script async
+src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX"
+crossorigin="anonymous"></script>
+
 <script type="module" src="js/post.js"></script>
 </head>
 <body>
 
-<header class="site-header">
+<header class="navbar">
   <div class="logo">AutomateScale</div>
 </header>
 
-<article class="article">
+<section class="post-hero">
   <h1 id="title"></h1>
-  <div id="articleImage"></div>
+  <p id="meta"></p>
+</section>
+
+<article class="post-container">
+
+  <!-- Ad after intro -->
+  <div class="ad-container">
+    <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-XXXXXXXX"
+      data-ad-slot="YYYYYYYY"
+      data-ad-format="auto"
+      data-full-width-responsive="true"></ins>
+  </div>
+
+  <img id="featuredImage" class="featured-image">
   <div id="content"></div>
+
+  <!-- Mid Article Ad -->
+  <div class="ad-container">
+    <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-XXXXXXXX"
+      data-ad-slot="YYYYYYYY"
+      data-ad-format="auto"
+      data-full-width-responsive="true"></ins>
+  </div>
+
+  <section class="related-section">
+    <h3>Related Articles</h3>
+    <div id="related"></div>
+  </section>
+
 </article>
 
-<section class="comments">
-  <h3>Comments</h3>
-  <input id="name" placeholder="Your name">
-  <textarea id="commentText"></textarea>
-  <button id="commentBtn">Post Comment</button>
-  <div id="commentList"></div>
-</section>
+<footer class="footer">
+  © 2026 AutomateScale
+</footer>
 
 </body>
 </html>
