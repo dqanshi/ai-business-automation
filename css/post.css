@@ -4,30 +4,8 @@
    AUTOMATESCALE – ELITE POST v2
 ================================ */
 
-/* ===== RESTORE PREMIUM LOGO ===== */
-
-.logo{
-  font-size:26px;
-  font-weight:900;
-  letter-spacing:-0.8px;
-  display:flex;
-  align-items:center;
-}
-
 .brand-accent{
-  background:linear-gradient(135deg,#6366f1,#22d3ee);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  margin-right:4px;
-}
 
-.logo span:last-child{
-  color:#0f172a;
-}
-
-.dark .logo span:last-child{
-  color:#ffffff;
-}
 
 /* ===== GLOBAL ===== */
 
@@ -42,28 +20,188 @@ body{
 
 
 
-/* ===== CENTER NAVBAR LOGO ===== */
+/* ================= NAVBAR LEVEL 2 ================= */
 
 .navbar{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-
-.nav-inner{
+  position:fixed;
+  top:0;
   width:100%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  z-index:1000;
+  backdrop-filter:blur(16px);
+  background:rgba(255,255,255,0.75);
+  border-bottom:1px solid rgba(0,0,0,0.05);
+  transition:all 0.3s ease;
 }
 
-/* If you're using nav-container instead of nav-inner */
+/* Shrink effect */
+.navbar.shrink{
+  padding:8px 0;
+  backdrop-filter:blur(20px);
+}
+
 .nav-container{
-  width:100%;
+  max-width:1200px;
+  margin:auto;
+  padding:18px 24px;
   display:flex;
-  justify-content:center;
   align-items:center;
+  justify-content:space-between;
+  transition:0.3s;
 }
+
+/* Logo */
+.logo{
+  font-size:26px;
+  font-weight:900;
+  letter-spacing:-0.8px;
+  display:flex;
+  align-items:center;
+  transition:0.3s;
+}
+
+.navbar.shrink .logo{
+  font-size:22px;
+}
+
+.brand-accent{
+  background:linear-gradient(135deg,#6366f1,#22d3ee);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-right:4px;
+}
+
+.logo span:last-child{
+  color:#0f172a;
+}
+
+/* Left */
+.nav-left{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.home-link{
+  text-decoration:none;
+  font-weight:600;
+  color:#334155;
+  font-size:14px;
+  transition:0.2s;
+}
+
+.home-link:hover{
+  color:#6366f1;
+}
+
+/* Hamburger */
+.menu-toggle{
+  background:none;
+  border:none;
+  font-size:20px;
+  cursor:pointer;
+  display:none;
+}
+
+/* Right */
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+/* Search Expand Animation */
+.search-wrapper{
+  position:relative;
+  display:flex;
+  align-items:center;
+  background:#f1f5f9;
+  border-radius:999px;
+  padding:6px 10px;
+  width:40px;
+  overflow:hidden;
+  transition:all 0.3s ease;
+}
+
+.search-wrapper.active{
+  width:200px;
+}
+
+.search-wrapper input{
+  border:none;
+  outline:none;
+  background:transparent;
+  margin-left:8px;
+  width:100%;
+  font-size:14px;
+  opacity:0;
+  transition:0.2s;
+}
+
+.search-wrapper.active input{
+  opacity:1;
+}
+
+.search-icon{
+  border:none;
+  background:none;
+  cursor:pointer;
+  font-size:14px;
+}
+
+/* Dark Toggle */
+.theme-btn{
+  background:#f1f5f9;
+  border:none;
+  padding:8px 12px;
+  border-radius:999px;
+  cursor:pointer;
+}
+
+/* ================= DARK MODE ================= */
+
+.dark .navbar{
+  background:rgba(15,23,42,0.8);
+  border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.dark .logo span:last-child{
+  color:white;
+}
+
+.dark .home-link{
+  color:#cbd5e1;
+}
+
+.dark .search-wrapper{
+  background:#1e293b;
+}
+
+.dark .search-wrapper input{
+  color:#e2e8f0;
+}
+
+.dark .theme-btn{
+  background:#1e293b;
+  color:white;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+  .menu-toggle{
+    display:block;
+  }
+
+  .home-link{
+    display:none;
+  }
+
+  .search-wrapper.active{
+    width:140px;
+  }
+
+   }
 
 
 
