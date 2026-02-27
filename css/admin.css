@@ -45,17 +45,36 @@ body{
   flex-direction:column;
 }
 
+/* ===== PREMIUM LOGO ===== */
+
 .brand-main{
-  font-size:28px;
-  font-weight:800;
-  color:#ffffff;
-  letter-spacing:-0.5px;
+  font-size:30px;
+  font-weight:900;
+  letter-spacing:-1px;
+  display:flex;
+  align-items:center;
 }
 
+/* Gradient Accent on "Automate" */
+.brand-accent{
+  background: linear-gradient(135deg,#6366f1,#22d3ee);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-right:4px;
+}
+
+/* Rest of text */
+.brand-main{
+  color:#ffffff;
+}
+
+/* Subtitle */
 .brand-sub{
-  font-size:14px;
+  font-size:13px;
   color:#94a3b8;
   margin-top:4px;
+  letter-spacing:0.5px;
+  text-transform:uppercase;
 }
 
 /* Button */
