@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AutomateScale | AI Automation for Businesses</title>
-<meta name="description" content="AI automation systems and scalable workflows for modern businesses.">
+<title>AutomateScale | AI Automation Blog</title>
+<meta name="description" content="AI automation strategies, tools and scalable systems.">
 <link rel="stylesheet" href="css/style.css">
 <script type="module" src="js/main.js" defer></script>
 </head>
@@ -16,28 +16,40 @@
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
+    <button id="darkToggle">🌙</button>
   </nav>
 </header>
 
-<section class="hero">
-  <h1>Build Smarter Businesses with AI Automation</h1>
-  <p>Practical systems. Scalable workflows. Real results.</p>
-
-  <div class="search-box">
-    <input type="text" id="searchInput" placeholder="Search articles...">
-    <button id="searchBtn">Search</button>
-  </div>
+<section class="hero-modern">
+  <h1>AI Automation for Modern Businesses</h1>
+  <p>Scalable workflows. Practical systems. Real business growth.</p>
 </section>
 
-<section class="category-filter">
-  <button onclick="filterCategory('all')">All</button>
-  <button onclick="filterCategory('AI')">AI</button>
-  <button onclick="filterCategory('Automation')">Automation</button>
-</section>
+<section class="layout">
 
-<section class="posts-section">
-  <div id="posts" class="posts-grid"></div>
-  <div id="pagination"></div>
+  <main class="content-area">
+
+    <div id="featuredPost"></div>
+
+    <div id="posts" class="posts-grid"></div>
+
+  </main>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-card">
+      <h3>Trending</h3>
+      <div id="trending"></div>
+    </div>
+
+    <div class="sidebar-card newsletter">
+      <h3>Stay Updated</h3>
+      <input type="email" placeholder="Enter email">
+      <button>Subscribe</button>
+    </div>
+
+  </aside>
+
 </section>
 
 <footer class="footer">
