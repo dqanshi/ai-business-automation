@@ -1,45 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title id="pageTitle">AutomateScale</title>
-<meta name="robots" content="max-image-preview:large">
+
+<title>AutomateScale</title>
+<meta name="description" content="">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
 <link rel="stylesheet" href="css/style.css">
 
+<!-- Google AdSense -->
 <script async
-src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX"
-crossorigin="anonymous"></script>
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX"
+  crossorigin="anonymous">
+</script>
 
 <script type="module" src="js/post.js"></script>
+
 </head>
+
 <body>
 
 <header class="navbar">
-  <div class="logo">AutomateScale</div>
+  <div class="logo">
+    <a href="index.html">AutomateScale</a>
+  </div>
 </header>
 
+<!-- Hero Section -->
 <section class="post-hero">
   <h1 id="title"></h1>
-  <p id="meta"></p>
+  <p id="meta" class="post-meta"></p>
 </section>
 
 <article class="post-container">
 
-  <!-- Ad after intro -->
-  <div class="ad-container">
-    <ins class="adsbygoogle"
-      style="display:block"
-      data-ad-client="ca-pub-XXXXXXXX"
-      data-ad-slot="YYYYYYYY"
-      data-ad-format="auto"
-      data-full-width-responsive="true"></ins>
-  </div>
+  <!-- Featured Image -->
+  <img id="featuredImage" class="featured-image" alt="Article Image">
 
-  <img id="featuredImage" class="featured-image">
+  <!-- Article Content -->
   <div id="content"></div>
 
-  <!-- Mid Article Ad -->
+  <!-- In-Article Ad -->
   <div class="ad-container">
     <ins class="adsbygoogle"
       style="display:block"
@@ -48,7 +52,11 @@ crossorigin="anonymous"></script>
       data-ad-format="auto"
       data-full-width-responsive="true"></ins>
   </div>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
 
+  <!-- Related Posts -->
   <section class="related-section">
     <h3>Related Articles</h3>
     <div id="related"></div>
@@ -57,7 +65,7 @@ crossorigin="anonymous"></script>
 </article>
 
 <footer class="footer">
-  © 2026 AutomateScale
+  <p>© 2026 AutomateScale. All rights reserved.</p>
 </footer>
 
 </body>
