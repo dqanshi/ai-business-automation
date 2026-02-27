@@ -3,52 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Post | AutomateScale</title>
 
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/post.css">
-
-<script type="module" src="/js/post.js"></script>
-<script defer src="js/base.js"></script>
+<link rel="stylesheet" href="post.css">
+<script defer src="post-ui.js"></script>
 </head>
 <body>
 
-<!-- ================= NAVBAR ================= -->
+<!-- NAVBAR -->
 <header class="navbar">
-  <div class="nav-container center-nav">
-
-    <div class="logo brand-main">
+  <div class="nav-inner">
+    <div class="logo">
       <span class="brand-accent">Automate</span>Scale
     </div>
 
+    <button id="darkToggle" class="theme-btn">🌙</button>
   </div>
 </header>
 
-<!-- ================= HERO ================= -->
-<section class="post-hero">
-  <div class="post-hero-inner">
-    <h1 id="postTitle"></h1>
-    <p class="post-meta-line">
-      <span id="postDate"></span> • 5 min read
-    </p>
-  </div>
-</section>
+<!-- ARTICLE -->
+<main class="post-wrapper">
 
-<!-- ================= ARTICLE ================= -->
-<main class="article-wrapper">
-  <article class="article-container">
+  <article class="post-container">
 
-    <!-- Top Ad -->
+    <h1 class="post-title">Test Article Title</h1>
+
+    <div class="post-meta">
+      Feb 27, 2026
+    </div>
+
+    <div class="divider"></div>
+
     <div class="ad-box">Advertisement</div>
 
-    <!-- Post Content -->
-    <div id="postContent" class="article-content"></div>
+    <div class="post-content">
+      <p>This is your article content area.</p>
+      <p>Keep spacing clean and typography strong.</p>
 
-    <!-- Bottom Ad -->
+      <h2>Section Heading</h2>
+      <p>Professional blogs focus on readability and spacing rhythm.</p>
+    </div>
+
     <div class="ad-box">Advertisement</div>
 
   </article>
+
 </main>
 
 <footer class="footer">
