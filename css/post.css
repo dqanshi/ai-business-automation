@@ -4,6 +4,31 @@
    AUTOMATESCALE – ELITE POST v2
 ================================ */
 
+/* ===== RESTORE PREMIUM LOGO ===== */
+
+.logo{
+  font-size:26px;
+  font-weight:900;
+  letter-spacing:-0.8px;
+  display:flex;
+  align-items:center;
+}
+
+.brand-accent{
+  background:linear-gradient(135deg,#6366f1,#22d3ee);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-right:4px;
+}
+
+.logo span:last-child{
+  color:#0f172a;
+}
+
+.dark .logo span:last-child{
+  color:#ffffff;
+}
+
 /* ===== GLOBAL ===== */
 
 body{
@@ -39,6 +64,7 @@ body{
   justify-content:center;
   align-items:center;
 }
+
 
 
 /* ===== LUXURY BACKGROUND ===== */
@@ -198,27 +224,3 @@ body{
 
    }
 
-/* ===== RESTORE PREMIUM LOGO ===== */
-
-.logo{
-  font-size:26px;
-  font-weight:900;
-  letter-spacing:-0.8px;
-  display:flex;
-  align-items:center;
-}
-
-.brand-accent{
-  background:linear-gradient(135deg,#6366f1,#22d3ee);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  margin-right:4px;
-}
-
-.logo span:last-child{
-  color:#0f172a;
-}
-
-.dark .logo span:last-child{
-  color:#ffffff;
-}
