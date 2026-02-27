@@ -4,7 +4,34 @@
    AUTOMATESCALE – ELITE POST v2
 ================================ */
 
+/* FORCE PREMIUM NAVBAR */
+
+.navbar{
+  background:rgba(255,255,255,0.8) !important;
+  backdrop-filter:blur(16px) !important;
+}
+
+.logo{
+  font-size:26px !important;
+  font-weight:900 !important;
+  display:flex !important;
+  align-items:center !important;
+  letter-spacing:-0.8px !important;
+}
+
 .brand-accent{
+  background:linear-gradient(135deg,#6366f1,#22d3ee) !important;
+  -webkit-background-clip:text !important;
+  -webkit-text-fill-color:transparent !important;
+}
+
+.logo span:last-child{
+  color:#0f172a !important;
+}
+
+.dark .logo span:last-child{
+  color:#ffffff !important;
+}
 
 
 /* ===== GLOBAL ===== */
