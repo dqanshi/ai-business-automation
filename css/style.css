@@ -315,44 +315,30 @@ body{
 
 /* ================= ARTICLE PAGE 10/10 ================= */
 
+
 .article-wrapper{
-  padding: 60px 20px;
+  padding:60px 20px;
 }
 
 .article-container{
-  max-width: 760px;
-  margin: 0 auto;
+  max-width:760px;
+  margin:0 auto;
 }
 
-/* Title */
-.article-header h1{
-  font-size: clamp(30px, 4vw, 44px);
-  font-weight: 800;
-  line-height: 1.2;
-  margin-bottom: 15px;
-  color: #0f172a;
-  letter-spacing: -0.5px;
+.article-container h1{
+  font-size:clamp(30px,4vw,44px);
+  font-weight:800;
+  margin-bottom:30px;
+  line-height:1.2;
 }
 
-/* Meta */
-.article-meta{
-  font-size: 14px;
-  color: #64748b;
-  margin-bottom: 35px;
-  display:flex;
-  gap:8px;
-  align-items:center;
-}
-
-/* Article Body */
 .article-content{
-  font-size: 18px;
-  line-height: 1.9;
-  color: #1e293b;
+  font-size:18px;
+  line-height:1.9;
 }
 
 .article-content p{
-  margin-bottom: 22px;
+  margin-bottom:22px;
 }
 
 .article-content h2{
