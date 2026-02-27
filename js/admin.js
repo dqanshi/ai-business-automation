@@ -78,36 +78,49 @@ async function bulkGenerate(topics){
 
   for(const topic of topics){
 
-    const response = await fetch("/api/generate", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ topic })
-    });
+    try {
 
-    const data = await response.json();
+      const response = await fetch("/api/generate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ topic })
+      });
 
-    const content = data.content;
+      if (!response.ok) {
+        alert("API error: " + response.status);
+        return;
+      }
 
-    const slug = topic.toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-");
+      const data = await response.json();
 
-    await addDoc(collection(db,"posts"),{
-      title: topic,
-      meta: topic,
-      content,
-      status: "published",
-      category: "AI",
-      slug,
-      date: new Date().toISOString()
-    });
+      if (!data.content) {
+        alert("AI did not return content");
+        return;
+      }
+
+      const slug = topic.toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/(^-|-$)/g, "");
+
+      await addDoc(collection(db,"posts"),{
+        title: topic,
+        meta: topic,
+        content: data.content,
+        status: "published",
+        category: "AI",
+        slug,
+        date: new Date().toISOString()
+      });
+
+    } catch (error) {
+      alert("Error: " + error.message);
+      return;
+    }
   }
 
   alert("Bulk publishing completed");
   location.reload();
-}
-
+    }
 /* ================= CONNECT BULK BUTTON ================= */
 if (bulkBtn) {
   bulkBtn.addEventListener("click", () => {
