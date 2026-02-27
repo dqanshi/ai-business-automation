@@ -1,0 +1,149 @@
+/* ===== RESET ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body{
+  background:#0f172a;
+  color:#e2e8f0;
+  padding:30px 20px;
+}
+
+/* ===== HEADER ===== */
+.site-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:40px;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:800;
+  color:#6366f1;
+}
+
+.site-header a{
+  text-decoration:none;
+  color:#cbd5e1;
+}
+
+/* ===== CONTAINER ===== */
+.container{
+  max-width:1000px;
+  margin:auto;
+}
+
+/* ===== STATS ===== */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:20px;
+  margin-bottom:20px;
+}
+
+.stats div{
+  background:#1e293b;
+  padding:20px;
+  border-radius:12px;
+  text-align:center;
+  font-weight:600;
+  font-size:16px;
+}
+
+/* ===== DASHBOARD SECTION ===== */
+.dashboard h2{
+  margin:30px 0 15px;
+  font-size:20px;
+}
+
+/* ===== INPUTS ===== */
+input, textarea, select{
+  width:100%;
+  padding:12px;
+  margin-bottom:15px;
+  border-radius:8px;
+  border:none;
+  background:#1e293b;
+  color:white;
+  font-size:14px;
+}
+
+textarea{
+  resize:vertical;
+}
+
+/* ===== BUTTONS ===== */
+button{
+  padding:10px 16px;
+  border:none;
+  border-radius:8px;
+  background:#6366f1;
+  color:white;
+  cursor:pointer;
+  font-weight:600;
+  margin-right:10px;
+  transition:0.2s;
+}
+
+button:hover{
+  background:#4f46e5;
+}
+
+button:last-child{
+  background:#ef4444;
+}
+
+button:last-child:hover{
+  background:#dc2626;
+}
+
+/* ===== POST LIST ===== */
+.admin-card{
+  background:#1e293b;
+  padding:15px 20px;
+  border-radius:10px;
+  margin-bottom:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.admin-card strong{
+  display:block;
+}
+
+.admin-card small{
+  color:#94a3b8;
+  display:block;
+  margin-top:4px;
+}
+
+/* ===== HR ===== */
+hr{
+  border:none;
+  border-top:1px solid #334155;
+  margin:40px 0;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+
+  body{
+    padding:20px 15px;
+  }
+
+  .site-header{
+    flex-direction:column;
+    gap:10px;
+  }
+
+  button{
+    width:100%;
+    margin-bottom:10px;
+  }
+
+}
