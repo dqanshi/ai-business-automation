@@ -1,0 +1,66 @@
+/* ================= POST HERO ================= */
+
+.post-hero{
+  padding:70px 20px;
+  text-align:center;
+  background:linear-gradient(135deg,#4f46e5,#6366f1);
+  color:white;
+}
+
+.post-hero h1{
+  font-size:clamp(30px,6vw,46px);
+  font-weight:900;
+  line-height:1.1;
+  margin-bottom:15px;
+}
+
+.post-meta-line{
+  opacity:0.9;
+}
+
+/* ================= ARTICLE ================= */
+
+.post-container{
+  max-width:760px;
+  margin:60px auto;
+  padding:0 20px;
+}
+
+.post-content{
+  font-size:18px;
+  line-height:1.9;
+}
+
+.post-content h2{
+  margin-top:40px;
+  margin-bottom:15px;
+}
+
+.post-content p{
+  margin-bottom:20px;
+}
+
+/* ================= ADS ================= */
+
+.ad-box{
+  margin:40px 0;
+  padding:30px;
+  background:#f1f5f9;
+  border-radius:14px;
+  text-align:center;
+  color:#94a3b8;
+}
+
+/* ================= DARK ================= */
+
+.dark .post-hero{
+  background:linear-gradient(135deg,#1e293b,#0f172a);
+}
+
+.dark .post-content{
+  color:#e2e8f0;
+}
+
+.dark .ad-box{
+  background:#1e293b;
+}
