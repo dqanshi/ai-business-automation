@@ -3,62 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title id="metaTitle">Loading...</title>
-<meta name="description" id="metaDesc" content="">
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Loading...</title>
 <link rel="stylesheet" href="css/style.css">
-<script type="module" src="js/post.js" defer></script>
+<script type="module" src="js/router.js" defer></script>
 </head>
-
 <body>
 
 <header class="navbar">
-  <div class="container nav-container">
-    <div class="logo">AutomateScale</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <button id="darkToggle">🌙</button>
-    </nav>
-  </div>
+  <div class="logo">AutomateScale</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <button id="darkToggle">🌙</button>
+  </nav>
 </header>
 
-<div class="container article-layout">
+<section class="post-container">
+  <h1 id="postTitle"></h1>
 
-  <main class="article-content">
+  <div class="ad-box">Advertisement</div>
 
-    <h1 id="postTitle"></h1>
+  <article id="postContent"></article>
 
-    <div class="post-meta">
-      <span id="postAuthor"></span>
-      <span id="postDate"></span>
-    </div>
-
-    <img id="postImage" class="featured-img">
-
-    <!-- Top Ad -->
-    <div class="ad-zone">Advertisement</div>
-
-    <article id="postContent" class="article-body"></article>
-
-    <!-- Mid Ad -->
-    <div class="ad-zone">Advertisement</div>
-
-    <section class="related">
-      <h3>Related Articles</h3>
-      <div id="relatedPosts"></div>
-    </section>
-
-  </main>
-
-  <aside class="article-sidebar">
-    <div class="sidebar-box sticky">
-      Advertisement
-    </div>
-  </aside>
-
-</div>
+  <div class="ad-box">Advertisement</div>
+</section>
 
 <footer class="footer">
   © 2026 AutomateScale
