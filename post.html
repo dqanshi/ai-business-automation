@@ -1,71 +1,234 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Post | AutomateScale</title>
+/* =========================================
+   AUTOMATESCALE — PRO POST DESIGN
+========================================= */
 
-<link rel="stylesheet" href="/css/post.css">
-<script defer src="js/base.js"></script>
-</head>
-<body>
+/* ===== GLOBAL ===== */
 
-<!-- NAVBAR -->
-<header class="navbar" id="navbar">
-  <div class="nav-container">
+body{
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  background:#f6f9fc;
+  color:#0f172a;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  transition:background .3s ease,color .3s ease;
+}
 
-    <div class="nav-left">
-      <a href="index.html" class="home-link">Home</a>
-    </div>
+/* =========================================
+   NAVBAR
+========================================= */
 
-    <div class="logo">
-      <span class="brand-accent">Automate</span><span>Scale</span>
-    </div>
+.navbar{
+  position:sticky;
+  top:0;
+  backdrop-filter:blur(14px);
+  background:rgba(255,255,255,0.8);
+  border-bottom:1px solid rgba(0,0,0,0.06);
+  z-index:1000;
+}
 
-    <div class="nav-right">
-      <div class="search-wrapper" id="searchWrapper">
-        <input type="text" placeholder="Search..." />
-        <button class="search-icon">🔍</button>
-      </div>
+.nav-container{
+  max-width:1100px;
+  margin:auto;
+  padding:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
 
-      <button id="darkToggle" class="theme-btn">🌙</button>
-    </div>
+.logo{
+  font-size:26px;
+  font-weight:900;
+  letter-spacing:-0.8px;
+  display:flex;
+  align-items:center;
+}
 
-  </div>
-</header>
-  
-<!-- ARTICLE -->
-<main class="post-wrapper">
+.brand-accent{
+  background:linear-gradient(135deg,#6366f1,#22d3ee);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-right:4px;
+}
 
-  <article class="post-container">
+.logo span:last-child{
+  color:#0f172a;
+}
 
-    <h1 class="post-title">Test Article Title</h1>
+.home-link{
+  text-decoration:none;
+  font-weight:600;
+  color:#334155;
+}
 
-    <div class="post-meta">
-      Feb 27, 2026
-    </div>
+.home-link:hover{
+  color:#6366f1;
+}
 
-    <div class="divider"></div>
+.theme-btn{
+  background:#f1f5f9;
+  border:none;
+  padding:8px 14px;
+  border-radius:10px;
+  cursor:pointer;
+}
 
-    <div class="ad-box">Advertisement</div>
+/* =========================================
+   ARTICLE WRAPPER
+========================================= */
 
-    <div class="post-content">
-      <p>This is your article content area.</p>
-      <p>Keep spacing clean and typography strong.</p>
+.post-wrapper{
+  padding:80px 20px 120px;
+}
 
-      <h2>Section Heading</h2>
-      <p>Professional blogs focus on readability and spacing rhythm.</p>
-    </div>
+.post-container{
+  max-width:760px;
+  margin:auto;
+  background:white;
+  padding:60px;
+  border-radius:20px;
+  box-shadow:
+    0 10px 40px rgba(0,0,0,0.06),
+    0 2px 8px rgba(0,0,0,0.04);
+}
 
-    <div class="ad-box">Advertisement</div>
+/* =========================================
+   TITLE & META
+========================================= */
 
-  </article>
+.post-title{
+  font-size:clamp(36px,5vw,48px);
+  font-weight:900;
+  line-height:1.15;
+  letter-spacing:-1px;
+  margin-bottom:16px;
+}
 
-</main>
+.post-meta{
+  font-size:14px;
+  color:#64748b;
+  margin-bottom:30px;
+}
 
-<footer class="footer">
-  © 2026 AutomateScale
-</footer>
+.divider{
+  height:1px;
+  background:#e5e7eb;
+  margin-bottom:40px;
+}
 
-</body>
-</html>
+/* =========================================
+   CONTENT
+========================================= */
+
+.post-content{
+  font-size:19px;
+}
+
+.post-content p{
+  margin-bottom:28px;
+}
+
+.post-content h2{
+  margin-top:50px;
+  margin-bottom:16px;
+  font-size:26px;
+  font-weight:800;
+}
+
+.post-content img{
+  width:100%;
+  border-radius:16px;
+  margin:50px 0;
+}
+
+/* =========================================
+   ADS
+========================================= */
+
+.ad-box{
+  margin:50px 0;
+  padding:35px;
+  border-radius:16px;
+  background:linear-gradient(
+    135deg,
+    rgba(148,163,184,0.15),
+    rgba(203,213,225,0.15)
+  );
+  text-align:center;
+  font-size:14px;
+  color:#64748b;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer{
+  margin-top:120px;
+  padding:40px;
+  text-align:center;
+  background:#0f172a;
+  color:white;
+  font-size:14px;
+}
+
+/* =========================================
+   DARK MODE
+========================================= */
+
+.dark{
+  background:#0b1120;
+  color:#e2e8f0;
+}
+
+.dark .navbar{
+  background:rgba(15,23,42,0.85);
+  border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.dark .logo span:last-child{
+  color:white;
+}
+
+.dark .post-container{
+  background:#111827;
+  box-shadow:
+    0 10px 40px rgba(0,0,0,0.4),
+    0 2px 8px rgba(0,0,0,0.3);
+}
+
+.dark .post-meta{
+  color:#94a3b8;
+}
+
+.dark .divider{
+  background:#1e293b;
+}
+
+.dark .post-content{
+  color:#e2e8f0;
+}
+
+.dark .ad-box{
+  background:rgba(30,41,59,0.6);
+  color:#94a3b8;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media(max-width:768px){
+
+  .post-container{
+    padding:40px 25px;
+  }
+
+  .post-title{
+    font-size:30px;
+  }
+
+  .post-content{
+    font-size:17px;
+  }
+
+}
