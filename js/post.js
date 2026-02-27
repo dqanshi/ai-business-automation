@@ -5,6 +5,11 @@ from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 const params = new URLSearchParams(window.location.search);
 const slug = params.get("slug");
 
+if (!slug) {
+  document.body.innerHTML = "<h2>Post not found.</h2>";
+  throw new Error("No slug provided in URL");
+}
+
 const snapshot = await getDocs(collection(db,"posts"));
 
 let currentPost = null;
@@ -19,22 +24,27 @@ snapshot.forEach(doc=>{
   }
 });
 
-if(currentPost){
+if(!currentPost){
+  document.body.innerHTML = "<h2>Post not found.</h2>";
+  throw new Error("Slug not found in database");
+}
 
-  document.getElementById("postTitle").innerText = currentPost.title;
-  document.getElementById("postAuthor").innerText = currentPost.author || "AutomateScale";
-  document.getElementById("postDate").innerText = new Date(currentPost.date).toDateString();
-  document.getElementById("postContent").innerHTML = currentPost.content;
-  document.getElementById("postImage").src = currentPost.image || "";
+/* ===== SET POST ===== */
 
-  document.title = currentPost.title + " | AutomateScale";
+document.getElementById("postTitle").innerText = currentPost.title;
+document.getElementById("postDate").innerText =
+  new Date(currentPost.date).toDateString();
 
-  document.getElementById("metaDesc")
-    .setAttribute("content", currentPost.meta || "");
+document.getElementById("postContent").innerHTML =
+  currentPost.content;
 
-  // Related posts
-  const relatedContainer = document.getElementById("relatedPosts");
+document.title = currentPost.title + " | AutomateScale";
 
+/* ===== RELATED POSTS ===== */
+
+const relatedContainer = document.getElementById("relatedPosts");
+
+if (relatedContainer) {
   allPosts
     .filter(p => p.slug !== slug)
     .slice(0,3)
