@@ -12,40 +12,48 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "No topic provided" });
     }
 
-    const apiKey = process.env.GEMINI_API_KEY;
-
-    if (!apiKey) {
-      return res.status(500).json({ error: "API key missing" });
-    }
-
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          contents: [{
-            parts: [{
-              text: `Write a detailed SEO optimized blog article about: ${topic}. Include headings and conclusion.`
-            }]
-          }]
+          contents: [
+            {
+              parts: [
+                {
+                  text: `Write a full SEO optimized blog article about: ${topic}.
+                  
+Include:
+- SEO friendly headings
+- Introduction
+- Detailed explanation
+- Conclusion
+- Use HTML formatting (h2, h3, p, ul)`
+                }
+              ]
+            }
+          ]
         })
       }
     );
 
     const data = await response.json();
 
-    console.log("Gemini Response:", JSON.stringify(data));
+    console.log("Gemini response:", data);
 
-    if (!data.candidates || !data.candidates[0]) {
-      return res.status(500).json({ error: "AI did not return content", raw: data });
+    if (!data.candidates) {
+      return res.status(500).json({ error: "AI did not return content", details: data });
     }
 
     const content = data.candidates[0].content.parts[0].text;
 
     res.status(200).json({ content });
 
-  } catch (err) {
-    console.error("Server Error
+  } catch (error) {
+    console.error("Server error:", error);
+    res.status(500).json({ error: "Server error", message: error.message });
+  }
+                  }
