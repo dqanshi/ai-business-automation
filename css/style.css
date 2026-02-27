@@ -1,158 +1,264 @@
-/* ============================= */
-/* GLOBAL RESET */
-/* ============================= */
+/* ===============================
+   GLOBAL RESET
+================================= */
+
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
   background: linear-gradient(135deg, #eef2ff, #f8fafc);
   color: #111827;
+  line-height: 1.7;
+  min-height: 100vh;
 }
 
-/* ============================= */
-/* HEADER */
-/* ============================= */
-.site-header {
+/* ===============================
+   NAVBAR
+================================= */
+
+.site-header,
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 40px;
-  background: white;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  padding: 22px 40px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .logo {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
   color: #4f46e5;
 }
 
+.logo a {
+  text-decoration: none;
+  color: inherit;
+}
+
 nav a {
+  margin-left: 25px;
   text-decoration: none;
   color: #374151;
   font-weight: 500;
+  transition: 0.3s ease;
 }
 
 nav a:hover {
   color: #4f46e5;
 }
 
-/* ============================= */
-/* DASHBOARD WRAPPER */
-/* ============================= */
-.dashboard {
-  max-width: 900px;
-  margin: 60px auto;
-  padding: 40px;
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-}
+/* ===============================
+   HERO SECTION
+================================= */
 
-/* ============================= */
-/* SECTION TITLES */
-/* ============================= */
-.dashboard h2 {
-  margin-bottom: 25px;
-  font-size: 22px;
-  font-weight: 700;
-  color: #111827;
-}
-
-/* ============================= */
-/* INPUT FIELDS */
-/* ============================= */
-.dashboard input,
-.dashboard select,
-.dashboard textarea {
-  width: 100%;
-  padding: 16px;
-  margin-bottom: 18px;
-  border-radius: 14px;
-  border: 1px solid #e5e7eb;
-  font-size: 15px;
-  transition: 0.3s ease;
-  background: #f9fafb;
-}
-
-.dashboard input:focus,
-.dashboard select:focus,
-.dashboard textarea:focus {
-  outline: none;
-  border-color: #4f46e5;
-  background: white;
-  box-shadow: 0 0 0 3px rgba(79,70,229,0.1);
-}
-
-/* ============================= */
-/* BUTTONS */
-/* ============================= */
-button {
-  padding: 14px 22px;
-  border-radius: 12px;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-#saveBtn {
+.hero,
+.post-hero {
+  padding: 120px 20px;
+  text-align: center;
   background: linear-gradient(135deg, #4f46e5, #6366f1);
   color: white;
 }
 
-#saveBtn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(79,70,229,0.3);
+.hero h1,
+.post-hero h1 {
+  font-size: 44px;
+  font-weight: 800;
+  margin-bottom: 20px;
 }
 
-#bulkBtn {
-  background: linear-gradient(135deg, #10b981, #34d399);
-  color: white;
+.hero p,
+.post-meta {
+  font-size: 18px;
+  opacity: 0.9;
+  margin-bottom: 30px;
 }
 
-#bulkBtn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(16,185,129,0.3);
+/* ===============================
+   CONTAINER / CARDS
+================================= */
+
+.container,
+.dashboard,
+.post-container {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 40px;
+  background: white;
+  border-radius: 20px;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.08),
+    0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* ============================= */
-/* POSTS LIST */
-/* ============================= */
-.admin-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px;
-  margin-bottom: 15px;
+/* ===============================
+   TYPOGRAPHY
+================================= */
+
+h1, h2, h3 {
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+h3 {
+  font-size: 20px;
+  margin-top: 40px;
+}
+
+p {
+  margin-bottom: 20px;
+  font-size: 17px;
+  color: #374151;
+}
+
+/* ===============================
+   FORM UI
+================================= */
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 14px 18px;
+  margin-bottom: 20px;
   border-radius: 14px;
-  background: #f9fafb;
   border: 1px solid #e5e7eb;
+  font-size: 15px;
+  background: #f9fafb;
+  transition: 0.3s ease;
 }
 
-.admin-card strong {
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #4f46e5;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+/* ===============================
+   BUTTONS
+================================= */
+
+button,
+.cta-btn {
+  padding: 14px 28px;
+  border-radius: 14px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
   font-size: 15px;
 }
 
-.admin-card button {
-  background: #ef4444;
+button {
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
   color: white;
-  padding: 8px 14px;
-  font-size: 13px;
 }
 
-.admin-card button:hover {
-  background: #dc2626;
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(79, 70, 229, 0.3);
 }
 
-/* ============================= */
-/* DIVIDERS */
-/* ============================= */
-hr {
-  margin: 50px 0;
-  border: none;
+.cta-btn {
+  background: white;
+  color: #4f46e5;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* ===============================
+   ADMIN CARDS
+================================= */
+
+.admin-card {
+  background: #f9fafb;
+  padding: 18px 22px;
+  border-radius: 14px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s ease;
+}
+
+.admin-card:hover {
+  background: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* ===============================
+   ARTICLE PAGE
+================================= */
+
+.featured-image {
+  width: 100%;
+  border-radius: 18px;
+  margin: 30px 0;
+}
+
+.post-container h2 {
+  margin-top: 40px;
+}
+
+.post-container ul {
+  margin: 20px 0 20px 25px;
+}
+
+.related-section {
+  margin-top: 60px;
+  padding-top: 30px;
   border-top: 1px solid #e5e7eb;
-                               }
+}
+
+.related-section a {
+  display: block;
+  margin-bottom: 12px;
+  color: #4f46e5;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.related-section a:hover {
+  text-decoration: underline;
+}
+
+/* ===============================
+   ADS
+================================= */
+
+.ad-container {
+  margin: 50px 0;
+  text-align: center;
+}
+
+/* ===============================
+   FOOTER
+================================= */
+
+.footer {
+  text-align: center;
+  padding: 40px;
+  margin-top: 60px;
+  color: #6b7280;
+  font-size: 14px;
+}
