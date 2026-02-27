@@ -137,6 +137,32 @@ body{
   grid-template-columns:1fr;
   gap:20px;
 }
+.post-container{
+  max-width:800px;
+  margin:60px auto;
+  padding:0 20px;
+}
+
+.post-container h1{
+  font-size:28px;
+  margin-bottom:20px;
+}
+
+.post-container article{
+  line-height:1.8;
+  font-size:18px;
+}
+
+.ad-box{
+  background:#e5e7eb;
+  text-align:center;
+  padding:30px;
+  margin:30px 0;
+  border-radius:12px;
+  color:#6b7280;
+}
+
+
 
 .card{
   background:white;
