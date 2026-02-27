@@ -1,3 +1,5 @@
+
+
 /* ================================
    AUTOMATESCALE – ELITE POST v2
 ================================ */
@@ -13,25 +15,31 @@ body{
   transition:0.3s;
 }
 
-/* ===== NAVBAR ===== */
+
+
+/* ===== CENTER NAVBAR LOGO ===== */
 
 .navbar{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:rgba(255,255,255,0.8);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(0,0,0,0.05);
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
 .nav-inner{
-  max-width:1100px;
-  margin:auto;
-  padding:18px 20px;
+  width:100%;
   display:flex;
-  justify-content:space-between;
+  justify-content:center;
   align-items:center;
 }
+
+/* If you're using nav-container instead of nav-inner */
+.nav-container{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
 
 /* ===== LUXURY BACKGROUND ===== */
 
@@ -189,3 +197,28 @@ body{
   }
 
    }
+
+/* ===== RESTORE PREMIUM LOGO ===== */
+
+.logo{
+  font-size:26px;
+  font-weight:900;
+  letter-spacing:-0.8px;
+  display:flex;
+  align-items:center;
+}
+
+.brand-accent{
+  background:linear-gradient(135deg,#6366f1,#22d3ee);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-right:4px;
+}
+
+.logo span:last-child{
+  color:#0f172a;
+}
+
+.dark .logo span:last-child{
+  color:#ffffff;
+}
