@@ -3,57 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>AutomateScale - AI Automation Systems</title>
-<meta name="description" content="Scalable AI automation systems for modern businesses.">
-
+<title>AutomateScale | AI Automation for Businesses</title>
+<meta name="description" content="AI automation systems and scalable workflows for modern businesses.">
 <link rel="stylesheet" href="css/style.css">
-<script type="module" src="js/main.js"></script>
-
+<script type="module" src="js/main.js" defer></script>
 </head>
 <body>
 
 <header class="navbar">
   <div class="logo">AutomateScale</div>
-
   <nav>
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
-    <button id="darkToggle" class="dark-btn">🌙</button>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
   </nav>
 </header>
 
 <section class="hero">
-  <div class="hero-content">
-    <h1>AI Automation Systems for Modern Businesses</h1>
-    <p>Scalable workflows, automation frameworks & high-performance AI systems.</p>
+  <h1>Build Smarter Businesses with AI Automation</h1>
+  <p>Practical systems. Scalable workflows. Real results.</p>
 
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Search articles...">
-    </div>
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search articles...">
+    <button id="searchBtn">Search</button>
   </div>
 </section>
 
-<div class="layout">
+<section class="category-filter">
+  <button onclick="filterCategory('all')">All</button>
+  <button onclick="filterCategory('AI')">AI</button>
+  <button onclick="filterCategory('Automation')">Automation</button>
+</section>
 
-  <main class="content">
-    <div id="posts" class="post-grid"></div>
-  </main>
-
-  <aside class="sidebar">
-    <div class="sidebar-card">
-      <h3>Categories</h3>
-      <div id="categories"></div>
-    </div>
-
-    <div class="sidebar-card">
-      <h3>Latest Posts</h3>
-      <div id="latest"></div>
-    </div>
-  </aside>
-
-</div>
+<section class="posts-section">
+  <div id="posts" class="posts-grid"></div>
+  <div id="pagination"></div>
+</section>
 
 <footer class="footer">
   © 2026 AutomateScale
