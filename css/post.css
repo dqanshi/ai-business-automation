@@ -1,3 +1,30 @@
+/* ===== PREMIUM POST HERO ===== */
+
+.post-hero{
+  background:linear-gradient(135deg,#6366f1,#4f46e5);
+  padding:80px 20px 60px;
+  text-align:center;
+  color:white;
+}
+
+.post-hero-inner{
+  max-width:800px;
+  margin:0 auto;
+}
+
+.post-hero h1{
+  font-size:clamp(32px,5vw,48px);
+  font-weight:900;
+  line-height:1.1;
+  margin-bottom:15px;
+}
+
+.post-hero .post-meta-line{
+  opacity:0.9;
+  font-size:15px;
+}
+
+
 /* ================= ARTICLE LAYOUT ================= */
 
 .article-wrapper{
