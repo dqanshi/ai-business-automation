@@ -7,29 +7,26 @@ async function loadPost() {
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
 
-  if (!id) {
-    console.error("No ID found in URL");
-    return;
-  }
+  if (!id) return;
 
   const docRef = doc(db, "posts", id);
   const snap = await getDoc(docRef);
 
-  if (!snap.exists()) {
-    console.error("Post not found");
-    return;
-  }
+  if (!snap.exists()) return;
 
   const post = snap.data();
 
   document.getElementById("postTitle").textContent = post.title;
   document.getElementById("postDate").textContent =
     new Date(post.date).toDateString();
-
   document.getElementById("postContent").innerHTML =
     post.content;
 
   document.title = post.title + " | AutomateScale";
+
+  // SHOW CONTENT
+  document.querySelector(".post-hero").classList.remove("hidden");
+  document.querySelector(".article-wrapper").classList.remove("hidden");
 }
 
 loadPost();
