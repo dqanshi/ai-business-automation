@@ -59,6 +59,32 @@ body{
   cursor:pointer;
 }
 
+.dark{
+  background:#0f172a;
+  color:#e2e8f0;
+}
+
+.dark .navbar{
+  background:#0f172a;
+  border-bottom:1px solid #1e293b;
+}
+
+.dark .card,
+.dark .sidebar-card{
+  background:#1e293b;
+  color:#e2e8f0;
+}
+
+.dark .nav-links a{
+  color:#e2e8f0;
+}
+
+.dark .ad-box{
+  background:#1e293b;
+  color:#94a3b8;
+}
+
+
 /* HERO */
 
 .hero{
