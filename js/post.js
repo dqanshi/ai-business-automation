@@ -1,42 +1,35 @@
 import { db } from "./firebase.js";
-import { collection, getDocs }
+import { doc, getDoc }
 from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 async function loadPost() {
 
   const params = new URLSearchParams(window.location.search);
-  const slug = params.get("slug");
+  const id = params.get("id");
 
-  if (!slug) {
-    console.error("No slug found in URL");
+  if (!id) {
+    console.error("No ID found in URL");
     return;
   }
 
-  const snapshot = await getDocs(collection(db,"posts"));
+  const docRef = doc(db, "posts", id);
+  const snap = await getDoc(docRef);
 
-  let currentPost = null;
-
-  snapshot.forEach(doc => {
-    const data = doc.data();
-    if (data.slug === slug) {
-      currentPost = data;
-    }
-  });
-
-  if (!currentPost) {
+  if (!snap.exists()) {
     console.error("Post not found");
     return;
   }
 
-  // Update DOM
-  document.getElementById("postTitle").textContent = currentPost.title;
+  const post = snap.data();
+
+  document.getElementById("postTitle").textContent = post.title;
   document.getElementById("postDate").textContent =
-    new Date(currentPost.date).toDateString();
+    new Date(post.date).toDateString();
 
   document.getElementById("postContent").innerHTML =
-    currentPost.content;
+    post.content;
 
-  document.title = currentPost.title + " | AutomateScale";
+  document.title = post.title + " | AutomateScale";
 }
 
 loadPost();
