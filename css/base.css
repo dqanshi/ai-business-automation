@@ -1,0 +1,42 @@
+/* ================= RESET ================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  background:#f8fafc;
+  color:#0f172a;
+  line-height:1.6;
+  transition:0.3s;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:0 20px;
+}
+
+/* ================= LOGO ================= */
+
+.brand-main{
+  font-size:24px;
+  font-weight:900;
+  letter-spacing:-0.8px;
+}
+
+.brand-accent{
+  background: linear-gradient(135deg,#6366f1,#22d3ee);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-right:4px;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+  background:white;
+  border-bottom:
