@@ -21,3 +21,25 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
+/* Shrink navbar on scroll */
+
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", () => {
+  if(window.scrollY > 50){
+    navbar.classList.add("shrink");
+  }else{
+    navbar.classList.remove("shrink");
+  }
+});
+
+/* Search expand */
+
+const searchWrapper = document.getElementById("searchWrapper");
+
+if(searchWrapper){
+  searchWrapper.addEventListener("click", () => {
+    searchWrapper.classList.toggle("active");
+  });
+}
