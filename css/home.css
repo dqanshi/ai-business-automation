@@ -1,0 +1,83 @@
+/* ================= HERO ================= */
+
+.hero{
+  background: linear-gradient(135deg,#6366f1,#4f46e5);
+  padding:80px 20px;
+  text-align:center;
+  color:white;
+}
+
+.hero h1{
+  font-size:clamp(28px,5vw,48px);
+  line-height:1.2;
+  font-weight:800;
+  max-width:800px;
+  margin:0 auto 20px;
+}
+
+.hero p{
+  font-size:clamp(16px,2.5vw,20px);
+  opacity:0.9;
+  max-width:600px;
+  margin:0 auto;
+}
+
+/* ================= GRID ================= */
+
+.main-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:40px;
+  margin:60px 0;
+}
+
+/* ================= POSTS ================= */
+
+.posts-grid{
+  display:grid;
+  gap:20px;
+}
+
+.card{
+  background:white;
+  padding:22px;
+  border-radius:14px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.05);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+}
+
+.card h3{
+  color:#4f46e5;
+  margin-bottom:10px;
+}
+
+.card p{
+  color:#64748b;
+}
+
+/* ================= SIDEBAR ================= */
+
+.sidebar{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.sidebar-card{
+  background:white;
+  padding:20px;
+  border-radius:14px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.05);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+  .main-grid{
+    grid-template-columns:1fr;
+  }
+}
