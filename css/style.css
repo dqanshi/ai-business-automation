@@ -91,6 +91,34 @@ body{
   opacity:0.9;
 }
 
+/* ===== POST HERO (Same Style as Home) ===== */
+
+.post-hero{
+  padding:80px 20px 60px;
+  text-align:center;
+  background:linear-gradient(135deg,#4f46e5,#6366f1);
+  color:white;
+}
+
+.post-hero h1{
+  font-size: clamp(32px, 6vw, 48px);
+  font-weight:900;
+  line-height:1.1;
+  margin-bottom:15px;
+}
+
+.post-subtitle{
+  font-size:18px;
+  opacity:0.9;
+  max-width:700px;
+  margin:auto;
+}
+
+/* Dark mode version */
+.dark .post-hero{
+  background:linear-gradient(135deg,#1e293b,#0f172a);
+}
+
 /* ================= AD BOX ================= */
 
 .ad-box{
