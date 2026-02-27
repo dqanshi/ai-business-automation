@@ -11,13 +11,32 @@
 <body>
 
 <!-- NAVBAR -->
-<header class="navbar">
-  <div class="nav-inner">
-    <div class="logo">
-      <span class="brand-accent">Automate</span>Scale
+<header class="navbar" id="navbar">
+  <div class="nav-container">
+
+    <!-- Left -->
+    <div class="nav-left">
+      <button class="menu-toggle" id="menuToggle">☰</button>
+      <a href="index.html" class="home-link">Home</a>
     </div>
 
-    <button id="darkToggle" class="theme-btn">🌙</button>
+    <!-- Center Logo -->
+    <div class="logo brand-main">
+      <span class="brand-accent">Automate</span><span>Scale</span>
+    </div>
+
+    <!-- Right -->
+    <div class="nav-right">
+
+      <div class="search-wrapper" id="searchWrapper">
+        <input type="text" placeholder="Search articles..." />
+        <button class="search-icon">🔍</button>
+      </div>
+
+      <button id="darkToggle" class="theme-btn">🌙</button>
+
+    </div>
+
   </div>
 </header>
 
