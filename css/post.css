@@ -1,66 +1,128 @@
-/* ================= POST HERO ================= */
+/* ================= ARTICLE LAYOUT ================= */
 
-.post-hero{
+.article-wrapper{
   padding:70px 20px;
-  text-align:center;
-  background:linear-gradient(135deg,#4f46e5,#6366f1);
-  color:white;
+  background:#f8fafc;
+  min-height:100vh;
 }
 
-.post-hero h1{
-  font-size:clamp(30px,6vw,46px);
+.article-container{
+  max-width:760px;
+  margin:0 auto;
+}
+
+/* ================= HEADER ================= */
+
+.article-header{
+  margin-bottom:40px;
+}
+
+.article-header h1{
+  font-size:clamp(30px,5vw,44px);
   font-weight:900;
-  line-height:1.1;
-  margin-bottom:15px;
+  line-height:1.15;
+  letter-spacing:-0.5px;
+  color:#0f172a;
 }
 
 .post-meta-line{
-  opacity:0.9;
+  margin-top:12px;
+  font-size:14px;
+  color:#64748b;
 }
 
-/* ================= ARTICLE ================= */
+/* ================= ARTICLE CONTENT ================= */
 
-.post-container{
-  max-width:760px;
-  margin:60px auto;
-  padding:0 20px;
-}
-
-.post-content{
+.article-content{
   font-size:18px;
   line-height:1.9;
+  color:#0f172a;
 }
 
-.post-content h2{
+.article-content p{
+  margin-bottom:22px;
+}
+
+.article-content h2{
   margin-top:40px;
   margin-bottom:15px;
+  font-size:24px;
+  font-weight:700;
 }
 
-.post-content p{
+.article-content h3{
+  margin-top:30px;
+  margin-bottom:10px;
+  font-size:20px;
+  font-weight:600;
+}
+
+.article-content ul{
+  margin-left:20px;
   margin-bottom:20px;
+}
+
+.article-content img{
+  max-width:100%;
+  border-radius:12px;
+  margin:30px 0;
 }
 
 /* ================= ADS ================= */
 
 .ad-box{
-  margin:40px 0;
+  margin:50px 0;
   padding:30px;
-  background:#f1f5f9;
+  background:#e2e8f0;
   border-radius:14px;
   text-align:center;
+  font-size:14px;
+  color:#64748b;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+  background:#0f172a;
+  color:white;
+  text-align:center;
+  padding:30px;
+  font-size:14px;
+}
+
+/* ================= DARK MODE ================= */
+
+.dark .article-wrapper{
+  background:#0f172a;
+}
+
+.dark .article-header h1{
+  color:#ffffff;
+}
+
+.dark .post-meta-line{
   color:#94a3b8;
 }
 
-/* ================= DARK ================= */
-
-.dark .post-hero{
-  background:linear-gradient(135deg,#1e293b,#0f172a);
-}
-
-.dark .post-content{
+.dark .article-content{
   color:#e2e8f0;
 }
 
 .dark .ad-box{
   background:#1e293b;
+  color:#94a3b8;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+  .article-wrapper{
+    padding:50px 15px;
+  }
+
+  .article-content{
+    font-size:17px;
+  }
+
 }
