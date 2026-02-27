@@ -341,3 +341,64 @@ body{
   }
 
   }
+
+/* ================= FIX RESPONSIVE HOME ================= */
+
+/* Make everything properly centered */
+.container,
+.nav-container,
+.hero,
+.main-grid,
+.article-layout{
+  width:100%;
+  max-width:1100px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* Fix hero scaling */
+.hero{
+  padding:70px 20px 50px;
+}
+
+.hero h1{
+  font-size: clamp(26px, 5vw, 42px);
+  line-height:1.2;
+}
+
+.hero p{
+  font-size: clamp(14px, 3.5vw, 18px);
+}
+
+/* Prevent overflow */
+body{
+  overflow-x:hidden;
+}
+
+/* Fix grid stacking properly */
+@media (max-width: 1024px){
+  .main-grid{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+}
+
+/* Improve navbar on small devices */
+@media (max-width: 768px){
+
+  .nav-container{
+    flex-direction:column;
+    gap:12px;
+    align-items:center;
+  }
+
+  .nav-links{
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  .hero{
+    padding-top:60px;
+  }
+
+    }
