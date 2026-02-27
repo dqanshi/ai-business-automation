@@ -78,25 +78,17 @@ async function bulkGenerate(topics){
 
   for(const topic of topics){
 
-    const response = await fetch(
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=YOUR_API_KEY",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          contents: [{
-            parts: [{
-              text: `Write an SEO optimized 800-word blog article about: ${topic}. Use HTML headings and structure properly.`
-            }]
-          }]
-        })
-      }
-    );
+    const response = await fetch("/api/generate", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ topic })
+    });
 
     const data = await response.json();
 
-    const content =
-      data.candidates[0].content.parts[0].text;
+    const content = data.content;
 
     const slug = topic.toLowerCase()
       .replace(/[^a-z0-9]+/g, "-");
