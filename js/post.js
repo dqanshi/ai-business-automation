@@ -1,114 +1,48 @@
 import { db } from "./firebase.js";
-import {
-  collection,
-  getDocs,
-  query,
-  where
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { collection, getDocs }
+from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const params = new URLSearchParams(window.location.search);
 const slug = params.get("slug");
 
-if (!slug) {
-  document.getElementById("content").innerHTML =
-    "<h2>Post not found</h2>";
-}
+const snapshot = await getDocs(collection(db,"posts"));
 
-/* ================= LOAD POST ================= */
+let currentPost = null;
+let allPosts = [];
 
-const q = query(
-  collection(db,"posts"),
-  where("slug","==",slug)
-);
+snapshot.forEach(doc=>{
+  const data = doc.data();
+  allPosts.push(data);
 
-const snapshot = await getDocs(q);
-
-snapshot.forEach(async (docSnap)=>{
-
-  const post = docSnap.data();
-
-  /* ===== BASIC CONTENT ===== */
-
-  document.title = post.title + " | AutomateScale";
-
-  document.querySelector("meta[name='description']")
-    .setAttribute("content", post.meta || "");
-
-  document.getElementById("title").innerText = post.title;
-  document.getElementById("meta").innerText = post.meta || "";
-  document.getElementById("content").innerHTML = post.content || "";
-
-  /* ===== FEATURED IMAGE ===== */
-
-  if(post.image){
-    const img = document.getElementById("featuredImage");
-    img.src = post.image;
-    img.style.display = "block";
+  if(data.slug === slug){
+    currentPost = data;
   }
-
-  /* ===== OPEN GRAPH SEO ===== */
-
-  addMeta("property","og:title", post.title);
-  addMeta("property","og:description", post.meta || "");
-  addMeta("property","og:image", post.image || "");
-
-  /* ===== STRUCTURED DATA ===== */
-
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": post.title,
-    "description": post.meta,
-    "image": post.image,
-    "datePublished": post.date
-  };
-
-  const script = document.createElement("script");
-  script.type = "application/ld+json";
-  script.text = JSON.stringify(schema);
-  document.head.appendChild(script);
-
-  /* ===== LOAD RELATED ===== */
-
-  loadRelated(post.slug);
 });
 
+if(currentPost){
 
-/* ================= RELATED POSTS ================= */
+  document.getElementById("postTitle").innerText = currentPost.title;
+  document.getElementById("postAuthor").innerText = currentPost.author || "AutomateScale";
+  document.getElementById("postDate").innerText = new Date(currentPost.date).toDateString();
+  document.getElementById("postContent").innerHTML = currentPost.content;
+  document.getElementById("postImage").src = currentPost.image || "";
 
-async function loadRelated(currentSlug){
+  document.title = currentPost.title + " | AutomateScale";
 
-  const snap = await getDocs(collection(db,"posts"));
+  document.getElementById("metaDesc")
+    .setAttribute("content", currentPost.meta || "");
 
-  let html = "<h3>Related Articles</h3>";
+  // Related posts
+  const relatedContainer = document.getElementById("relatedPosts");
 
-  snap.forEach(d=>{
-    const p = d.data();
-
-    if(p.slug !== currentSlug && p.status === "published"){
-      html += `
-        <div class="related-item">
-          <a href="post.html?slug=${p.slug}">
-            ${p.title}
-          </a>
-        </div>
+  allPosts
+    .filter(p => p.slug !== slug)
+    .slice(0,3)
+    .forEach(p=>{
+      relatedContainer.innerHTML += `
+        <a href="post.html?slug=${p.slug}">
+          ${p.title}
+        </a>
       `;
-    }
-  });
-
-  document.getElementById("related").innerHTML = html;
-}
-
-
-/* ================= META HELPER ================= */
-
-function addMeta(type, name, content){
-
-  if(!content) return;
-
-  const tag = document.createElement("meta");
-  tag.setAttribute(type, name);
-  tag.content = content;
-
-  document.head.appendChild(tag);
+    });
 }
