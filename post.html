@@ -1,71 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AutomateScale</title>
-<meta name="description" content="">
-<meta name="robots" content="index, follow, max-image-preview:large">
+<title id="metaTitle">Loading...</title>
+<meta name="description" id="metaDesc" content="">
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
-
-<!-- Google AdSense -->
-<script async
-  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX"
-  crossorigin="anonymous">
-</script>
-
-<script type="module" src="js/post.js"></script>
-
+<script type="module" src="js/post.js" defer></script>
 </head>
 
 <body>
 
 <header class="navbar">
-  <div class="logo">
-    <a href="index.html">AutomateScale</a>
+  <div class="container nav-container">
+    <div class="logo">AutomateScale</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <button id="darkToggle">🌙</button>
+    </nav>
   </div>
 </header>
 
-<!-- Hero Section -->
-<section class="post-hero">
-  <h1 id="title"></h1>
-  <p id="meta" class="post-meta"></p>
-</section>
+<div class="container article-layout">
 
-<article class="post-container">
+  <main class="article-content">
 
-  <!-- Featured Image -->
-  <img id="featuredImage" class="featured-image" alt="Article Image">
+    <h1 id="postTitle"></h1>
 
-  <!-- Article Content -->
-  <div id="content"></div>
+    <div class="post-meta">
+      <span id="postAuthor"></span>
+      <span id="postDate"></span>
+    </div>
 
-  <!-- In-Article Ad -->
-  <div class="ad-container">
-    <ins class="adsbygoogle"
-      style="display:block"
-      data-ad-client="ca-pub-XXXXXXXX"
-      data-ad-slot="YYYYYYYY"
-      data-ad-format="auto"
-      data-full-width-responsive="true"></ins>
-  </div>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
+    <img id="postImage" class="featured-img">
 
-  <!-- Related Posts -->
-  <section class="related-section">
-    <h3>Related Articles</h3>
-    <div id="related"></div>
-  </section>
+    <!-- Top Ad -->
+    <div class="ad-zone">Advertisement</div>
 
-</article>
+    <article id="postContent" class="article-body"></article>
+
+    <!-- Mid Ad -->
+    <div class="ad-zone">Advertisement</div>
+
+    <section class="related">
+      <h3>Related Articles</h3>
+      <div id="relatedPosts"></div>
+    </section>
+
+  </main>
+
+  <aside class="article-sidebar">
+    <div class="sidebar-box sticky">
+      Advertisement
+    </div>
+  </aside>
+
+</div>
 
 <footer class="footer">
-  <p>© 2026 AutomateScale. All rights reserved.</p>
+  © 2026 AutomateScale
 </footer>
 
 </body>
