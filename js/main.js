@@ -2,79 +2,60 @@ import { db } from "./firebase.js";
 import { collection, getDocs }
 from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-const postsDiv = document.getElementById("posts");
-const searchInput = document.getElementById("searchInput");
-const darkToggle = document.getElementById("darkToggle");
-
-let allPosts = [];
-
-loadPosts();
-
-/* ===== LOAD POSTS ===== */
+const postsContainer = document.getElementById("posts");
+const featuredContainer = document.getElementById("featuredPost");
+const trendingContainer = document.getElementById("trending");
 
 async function loadPosts(){
   const snapshot = await getDocs(collection(db,"posts"));
+  let first = true;
 
   snapshot.forEach(doc=>{
     const post = doc.data();
-    if(post.status === "published"){
-      allPosts.push(post);
-    }
-  });
 
-  renderPosts(allPosts);
-  loadSidebar();
-}
+    if(post.status==="published"){
 
-/* ===== RENDER POSTS ===== */
+      if(first){
+        featuredContainer.innerHTML = `
+          <div class="card">
+            <img src="${post.image||''}">
+            <h2>
+              <a href="post.html?slug=${post.slug}">
+                ${post.title}
+              </a>
+            </h2>
+            <p>${post.meta||''}</p>
+          </div>
+        `;
+        first = false;
+      }
 
-function renderPosts(posts){
-  postsDiv.innerHTML = "";
+      postsContainer.innerHTML += `
+        <div class="card">
+          <img src="${post.image||''}">
+          <h3>
+            <a href="post.html?slug=${post.slug}">
+              ${post.title}
+            </a>
+          </h3>
+        </div>
+      `;
 
-  posts.forEach(post=>{
-    postsDiv.innerHTML += `
-      <div class="post-card">
-        <h2>
+      trendingContainer.innerHTML += `
+        <p>
           <a href="post.html?slug=${post.slug}">
             ${post.title}
           </a>
-        </h2>
-        <p>${post.meta}</p>
-      </div>
-    `;
+        </p>
+      `;
+    }
   });
 }
 
-/* ===== SEARCH ===== */
+loadPosts();
 
-searchInput.addEventListener("input", ()=>{
-  const value = searchInput.value.toLowerCase();
-
-  const filtered = allPosts.filter(p =>
-    p.title.toLowerCase().includes(value)
-  );
-
-  renderPosts(filtered);
-});
-
-/* ===== SIDEBAR ===== */
-
-function loadSidebar(){
-  const latest = document.getElementById("latest");
-
-  allPosts.slice(0,5).forEach(p=>{
-    latest.innerHTML += `
-      <p>
-        <a href="post.html?slug=${p.slug}">
-          ${p.title}
-        </a>
-      </p>
-    `;
-  });
-}
-
-/* ===== DARK MODE ===== */
-
-darkToggle.addEventListener("click", ()=>{
+/* DARK MODE */
+document.getElementById("darkToggle")
+.addEventListener("click",()=>{
   document.body.classList.toggle("dark");
 });
