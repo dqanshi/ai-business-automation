@@ -10,31 +10,38 @@
 <body>
 
 <header class="navbar">
+<header class="navbar">
   <div class="nav-container">
-    <div class="logo">AutomateScale</div>
-    <div class="nav-links">
+    <div class="logo brand-main">
+      <span class="brand-accent">Automate</span>Scale
+    </div>
+    <nav class="nav-links">
       <a href="index.html">Home</a>
       <button id="darkToggle">🌙</button>
-    </div>
+    </nav>
   </div>
 </header>
 
-<section class="article-hero">
-  <div class="container">
-    <h1 id="postTitle"></h1>
-    <p id="postMeta" class="meta-line"></p>
-  </div>
-</section>
+<main class="article-wrapper">
 
-<main class="article-body-wrapper container">
+  <article class="article-container">
 
-  <img id="featuredImage" class="featured-image" />
+    <header class="article-header">
+      <h1 id="postTitle"></h1>
+      <div class="article-meta">
+        <span id="postDate"></span>
+        <span>•</span>
+        <span id="postCategory"></span>
+      </div>
+    </header>
 
-  <div class="ad-box">Advertisement</div>
+    <div class="ad-box">Advertisement</div>
 
-  <article id="postContent" class="article-content"></article>
+    <div id="postContent" class="article-content"></div>
 
-  <div class="ad-box">Advertisement</div>
+    <div class="ad-box">Advertisement</div>
+
+  </article>
 
 </main>
 
