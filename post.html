@@ -10,22 +10,29 @@
 <body>
 
 <header class="navbar">
-  <div class="logo">AutomateScale</div>
-  <nav>
+  <div class="nav-left">
+    <div class="logo">AutomateScale</div>
+  </div>
+
+  <div class="nav-right">
     <a href="index.html">Home</a>
     <button id="darkToggle">🌙</button>
-  </nav>
+  </div>
 </header>
 
-<section class="post-container">
-  <h1 id="postTitle"></h1>
+<main class="post-wrapper">
 
-  <div class="ad-box">Advertisement</div>
+  <article class="post-article">
+    <h1 id="postTitle"></h1>
 
-  <article id="postContent"></article>
+    <div class="ad-box">Advertisement</div>
 
-  <div class="ad-box">Advertisement</div>
-</section>
+    <div id="postContent" class="post-content"></div>
+
+    <div class="ad-box">Advertisement</div>
+  </article>
+
+</main>
 
 <footer class="footer">
   © 2026 AutomateScale
