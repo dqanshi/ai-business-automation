@@ -1,237 +1,158 @@
-/* =========================
-   ADMIN DASHBOARD
-========================= */
-
-.site-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 30px;
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.logo {
-  font-size: 22px;
-  font-weight: 700;
-  color: #2563eb;
-}
-
-.dashboard {
-  max-width: 900px;
-  margin: 50px auto;
-  padding: 20px;
-  background: #ffffff;
-  border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-}
-
-.dashboard h2 {
-  margin-top: 40px;
-  margin-bottom: 20px;
-  font-size: 22px;
-}
-
-.dashboard input,
-.dashboard textarea,
-.dashboard select {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  font-size: 15px;
-}
-
-.dashboard button {
-  padding: 12px 20px;
-  background: #2563eb;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.dashboard button:hover {
-  background: #1d4ed8;
-}
-
-.admin-card {
-  background: #f9fafb;
-  padding: 15px;
-  border-radius: 8px;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-
-/* =====================
-   GLOBAL
-===================== */
-
+/* ============================= */
+/* GLOBAL RESET */
+/* ============================= */
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-  background: #f9fafb;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
   color: #111827;
-  line-height: 1.8;
 }
 
-a {
-  color: #2563eb;
+/* ============================= */
+/* HEADER */
+/* ============================= */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 40px;
+  background: white;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #4f46e5;
+}
+
+nav a {
   text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* =====================
-   NAVBAR
-===================== */
-
-.navbar {
-  background: #ffffff;
-  padding: 20px 40px;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.logo a {
-  font-size: 22px;
-  font-weight: 700;
-  color: #111827;
-}
-
-/* =====================
-   HERO SECTION
-===================== */
-
-.post-hero {
-  padding: 80px 20px;
-  text-align: center;
-  background: linear-gradient(135deg, #2563eb, #4f46e5);
-  color: white;
-}
-
-.post-hero h1 {
-  max-width: 850px;
-  margin: 0 auto;
-  font-size: 38px;
-  font-weight: 700;
-}
-
-.post-meta {
-  margin-top: 15px;
-  font-size: 16px;
-  opacity: 0.9;
-}
-
-/* =====================
-   ARTICLE CONTAINER
-===================== */
-
-.post-container {
-  max-width: 760px;
-  margin: 60px auto;
-  padding: 0 20px;
-  background: #ffffff;
-}
-
-.post-container p {
-  margin-bottom: 20px;
-  font-size: 18px;
-}
-
-.post-container h2 {
-  margin-top: 40px;
-  font-size: 28px;
-}
-
-.post-container h3 {
-  margin-top: 30px;
-  font-size: 22px;
-}
-
-.post-container ul {
-  margin: 20px 0 20px 20px;
-}
-
-.featured-image {
-  width: 100%;
-  border-radius: 12px;
-  margin-bottom: 30px;
-}
-
-/* =====================
-   ADS
-===================== */
-
-.ad-container {
-  margin: 50px 0;
-  text-align: center;
-}
-
-/* =====================
-   RELATED POSTS
-===================== */
-
-.related-section {
-  margin-top: 70px;
-  padding-top: 30px;
-  border-top: 1px solid #e5e7eb;
-}
-
-.related-section h3 {
-  margin-bottom: 20px;
-  font-size: 20px;
-}
-
-.related-section a {
-  display: block;
-  margin-bottom: 10px;
+  color: #374151;
   font-weight: 500;
 }
 
-/* =====================
-   FOOTER
-===================== */
+nav a:hover {
+  color: #4f46e5;
+}
 
-.footer {
-  margin-top: 80px;
-  padding: 30px;
-  text-align: center;
-  background: #ffffff;
+/* ============================= */
+/* DASHBOARD WRAPPER */
+/* ============================= */
+.dashboard {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 40px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+}
+
+/* ============================= */
+/* SECTION TITLES */
+/* ============================= */
+.dashboard h2 {
+  margin-bottom: 25px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* ============================= */
+/* INPUT FIELDS */
+/* ============================= */
+.dashboard input,
+.dashboard select,
+.dashboard textarea {
+  width: 100%;
+  padding: 16px;
+  margin-bottom: 18px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  font-size: 15px;
+  transition: 0.3s ease;
+  background: #f9fafb;
+}
+
+.dashboard input:focus,
+.dashboard select:focus,
+.dashboard textarea:focus {
+  outline: none;
+  border-color: #4f46e5;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(79,70,229,0.1);
+}
+
+/* ============================= */
+/* BUTTONS */
+/* ============================= */
+button {
+  padding: 14px 22px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#saveBtn {
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: white;
+}
+
+#saveBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(79,70,229,0.3);
+}
+
+#bulkBtn {
+  background: linear-gradient(135deg, #10b981, #34d399);
+  color: white;
+}
+
+#bulkBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(16,185,129,0.3);
+}
+
+/* ============================= */
+/* POSTS LIST */
+/* ============================= */
+.admin-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px;
+  margin-bottom: 15px;
+  border-radius: 14px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+}
+
+.admin-card strong {
+  font-size: 15px;
+}
+
+.admin-card button {
+  background: #ef4444;
+  color: white;
+  padding: 8px 14px;
+  font-size: 13px;
+}
+
+.admin-card button:hover {
+  background: #dc2626;
+}
+
+/* ============================= */
+/* DIVIDERS */
+/* ============================= */
+hr {
+  margin: 50px 0;
+  border: none;
   border-top: 1px solid #e5e7eb;
-  font-size: 14px;
-  color: #6b7280;
-}
-
-/* =====================
-   MOBILE OPTIMIZATION
-===================== */
-
-@media (max-width: 768px) {
-
-  .post-hero {
-    padding: 60px 15px;
-  }
-
-  .post-hero h1 {
-    font-size: 28px;
-  }
-
-  .post-container {
-    margin: 40px auto;
-  }
-
-  .post-container p {
-    font-size: 16px;
-  }
-}
+                               }
