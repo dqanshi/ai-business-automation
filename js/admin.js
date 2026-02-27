@@ -75,52 +75,43 @@ async function loadCategories(){
 
 /* ================= BULK AI GENERATOR ================= */
 async function bulkGenerate(topics){
+async function bulkGenerate(topics){
 
   for(const topic of topics){
 
-    try {
+    const response = await fetch("/api/generate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ topic })
+    });
 
-      const response = await fetch("/api/generate", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ topic })
-      });
+    const data = await response.json();
 
-      if (!response.ok) {
-        alert("API error: " + response.status);
-        return;
-      }
-
-      const data = await response.json();
-
-      if (!data.content) {
-        alert("AI did not return content");
-        return;
-      }
-
-      const slug = topic.toLowerCase()
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/(^-|-$)/g, "");
-
-      await addDoc(collection(db,"posts"),{
-        title: topic,
-        meta: topic,
-        content: data.content,
-        status: "published",
-        category: "AI",
-        slug,
-        date: new Date().toISOString()
-      });
-
-    } catch (error) {
-      alert("Error: " + error.message);
+    if (!data.title) {
+      alert("AI failed");
       return;
     }
+
+    const slug = data.title.toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)/g, "");
+
+    await addDoc(collection(db,"posts"),{
+      title: data.title,
+      meta: data.meta,
+      content: data.content,
+      image: `https://source.unsplash.com/1200x600/?${topic.replace(" ","+")}`,
+      related: [],
+      status: "published",
+      category: "AI",
+      slug,
+      date: new Date().toISOString()
+    });
   }
 
-  alert("Bulk publishing completed");
+  alert("Full SEO article published");
   location.reload();
-    }
+}
 /* ================= CONNECT BULK BUTTON ================= */
 if (bulkBtn) {
   bulkBtn.addEventListener("click", () => {
