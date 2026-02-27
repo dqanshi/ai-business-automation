@@ -8,25 +8,33 @@ export default async function handler(req, res) {
 
     const { topic } = req.body;
 
-    if (!topic) {
-      return res.status(400).json({ error: "No topic provided" });
-    }
-
-    const API_KEY = process.env.GEMINI_API_KEY;
-
-    if (!API_KEY) {
-      return res.status(500).json({ error: "Missing API key" });
-    }
-
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           contents: [{
             parts: [{
-              text: `Write a 1000+ word SEO optimized blog article about: ${topic}`
+              text: `
+Create SEO blog content about: ${topic}
+
+Return ONLY valid JSON in this format:
+
+{
+  "title": "",
+  "meta": "",
+  "content": "",
+  "image_prompt": ""
+}
+
+Rules:
+- Title under 60 characters
+- Meta description under 160 characters
+- Content minimum 1000 words
+- Content must use HTML tags (h2, h3, p, ul)
+- Image prompt should describe a professional blog featured image
+`
             }]
           }]
         })
@@ -35,17 +43,20 @@ export default async function handler(req, res) {
 
     const data = await response.json();
 
-    if (!data.candidates || !data.candidates[0]) {
-      console.error("Gemini raw response:", data);
-      return res.status(500).json({ error: "Invalid Gemini response" });
+    const raw = data.candidates?.[0]?.content?.parts?.[0]?.text;
+
+    if (!raw) {
+      return res.status(500).json({ error: "AI failed" });
     }
 
-    const content = data.candidates[0].content.parts[0].text;
+    // Clean markdown code blocks if Gemini adds them
+    const cleaned = raw.replace(/```json|```/g, "").trim();
 
-    return res.status(200).json({ content });
+    const parsed = JSON.parse(cleaned);
+
+    res.status(200).json(parsed);
 
   } catch (err) {
-    console.error("Server error:", err);
-    return res.status(500).json({ error: "Internal server error" });
+    res.status(500).json({ error: err.message });
   }
 }
