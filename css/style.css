@@ -52,6 +52,35 @@ body{
   color: #94a3b8;
 }
 
+
+
+/* ===== SHARED PREMIUM LOGO ===== */
+
+.brand-main{
+  font-size:24px;
+  font-weight:900;
+  letter-spacing:-0.8px;
+  display:flex;
+  align-items:center;
+}
+
+/* Gradient Automate */
+.brand-accent{
+  background: linear-gradient(135deg,#6366f1,#22d3ee);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-right:4px;
+}
+
+/* Scale part */
+.logo{
+  color:#ffffff; /* for dark hero */
+}
+
+/* If navbar background is white */
+.navbar .logo{
+  color:#0f172a;
+}
 /* ================= NAVBAR ================= */
 
 .navbar{
