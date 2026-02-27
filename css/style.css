@@ -313,77 +313,96 @@ body{
   font-size:14px;
 }
 
-/* ===== PREMIUM ARTICLE PAGE ===== */
+/* ================= ARTICLE PAGE 10/10 ================= */
 
-.article-hero{
-  padding:70px 0 40px;
-  text-align:center;
+.article-wrapper{
+  padding: 60px 20px;
 }
 
-.article-hero h1{
-  font-size:clamp(30px,5vw,46px);
-  font-weight:900;
-  line-height:1.15;
-  margin-bottom:15px;
-  color:#0f172a;
+.article-container{
+  max-width: 760px;
+  margin: 0 auto;
 }
 
-.meta-line{
-  color:#64748b;
-  font-size:14px;
+/* Title */
+.article-header h1{
+  font-size: clamp(30px, 4vw, 44px);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 15px;
+  color: #0f172a;
+  letter-spacing: -0.5px;
 }
 
-.article-body-wrapper{
-  max-width:800px;
-  margin:auto;
-  padding-bottom:60px;
+/* Meta */
+.article-meta{
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 35px;
+  display:flex;
+  gap:8px;
+  align-items:center;
 }
 
-.featured-image{
-  width:100%;
-  border-radius:16px;
-  margin:40px 0;
-}
-
+/* Article Body */
 .article-content{
-  font-size:19px;
-  line-height:1.9;
-  color:#1e293b;
-}
-
-.article-content h2{
-  font-size:24px;
-  margin-top:40px;
-  margin-bottom:15px;
+  font-size: 18px;
+  line-height: 1.9;
+  color: #1e293b;
 }
 
 .article-content p{
-  margin-bottom:22px;
+  margin-bottom: 22px;
 }
 
+.article-content h2{
+  margin-top: 40px;
+  margin-bottom: 15px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.article-content ul{
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+/* Ads */
 .ad-box{
-  background:#f1f5f9;
-  padding:30px;
-  text-align:center;
-  border-radius:14px;
-  margin:40px 0;
-  color:#94a3b8;
-  font-size:14px;
+  margin: 40px 0;
+  padding: 30px;
+  background: #f1f5f9;
+  border-radius: 14px;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 14px;
 }
 
-/* DARK MODE */
-
-.dark .article-hero h1{
-  color:white;
+/* Dark Mode */
+.dark .article-header h1{
+  color: #ffffff;
 }
 
 .dark .article-content{
-  color:#e2e8f0;
+  color: #e2e8f0;
 }
 
 .dark .ad-box{
-  background:#1e293b;
+  background: #1e293b;
+  color: #94a3b8;
 }
+
+/* Mobile */
+@media(max-width:768px){
+  .article-wrapper{
+    padding: 40px 15px;
+  }
+
+  .article-content{
+    font-size: 17px;
+  }
+  }
+
 /* ================= DARK MODE ================= */
 
 .dark{
