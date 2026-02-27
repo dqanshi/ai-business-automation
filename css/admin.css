@@ -1,27 +1,33 @@
-/* ===== ADMIN GLOBAL ===== */
+/* ================= BASE ================= */
 
-body{
+*{
   margin:0;
-  font-family: 'Inter', sans-serif;
-  background:#0b1220;
-  color:#e2e8f0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-.admin-wrapper{
+body{
+  font-family: Inter, system-ui, sans-serif;
+  background:#0f172a;
+  color:#e2e8f0;
+  line-height:1.6;
+}
+
+.container{
   max-width:1100px;
   margin:auto;
   padding:40px 20px;
 }
 
-/* ===== HEADER ===== */
+/* ================= HEADER ================= */
 
 .admin-header{
+  background:#111827;
+  padding:20px 30px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:25px 40px;
-  background:#0f172a;
-  border-bottom:1px solid #1e293b;
+  border-bottom:1px solid #1f2937;
 }
 
 .admin-brand{
@@ -30,8 +36,8 @@ body{
 }
 
 .brand-main{
+  font-size:22px;
   font-weight:800;
-  font-size:20px;
   color:#6366f1;
 }
 
@@ -42,94 +48,141 @@ body{
 
 .view-site{
   text-decoration:none;
-  color:#cbd5e1;
-  font-size:14px;
-  padding:8px 14px;
   background:#1e293b;
+  padding:8px 16px;
   border-radius:8px;
+  color:#e2e8f0;
   transition:0.2s;
 }
 
 .view-site:hover{
   background:#6366f1;
-  color:white;
 }
 
-/* ===== DASHBOARD CARDS ===== */
+/* ================= TITLES ================= */
 
-.stats-grid{
+h2{
+  margin:40px 0 20px;
+  font-size:22px;
+}
+
+/* ================= STATS ================= */
+
+.stats{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
   gap:20px;
-  margin:40px 0;
 }
 
-.stat-card{
-  background:#111827;
+.stats div{
+  background:#1e293b;
   padding:25px;
   border-radius:14px;
   font-size:18px;
-  font-weight:600;
-  border:1px solid #1e293b;
 }
 
-/* ===== FORM ===== */
+/* ================= FORM ================= */
 
-.admin-form{
+input,
+select,
+textarea{
+  width:100%;
+  background:#1e293b;
+  border:1px solid #334155;
+  padding:12px 14px;
+  border-radius:10px;
+  color:#e2e8f0;
+  margin-bottom:18px;
+  font-size:14px;
+}
+
+textarea{
+  min-height:180px;
+  resize:vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  outline:none;
+  border-color:#6366f1;
+}
+
+/* ================= BUTTONS ================= */
+
+button{
+  background:#6366f1;
+  border:none;
+  padding:10px 20px;
+  border-radius:10px;
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+  margin-right:10px;
+  margin-bottom:15px;
+  transition:0.2s;
+}
+
+button:hover{
+  background:#4f46e5;
+}
+
+/* ================= FILTER ================= */
+
+#filterStatus{
+  width:200px;
+  margin-bottom:20px;
+}
+
+/* ================= POST LIST ================= */
+
+#postList{
   display:flex;
   flex-direction:column;
   gap:15px;
 }
 
-.admin-form input,
-.admin-form textarea,
-.admin-form select{
-  padding:14px;
-  border-radius:10px;
-  border:1px solid #1e293b;
-  background:#111827;
-  color:#e2e8f0;
-  font-size:14px;
-}
-
-.admin-form textarea{
-  min-height:150px;
-  resize:vertical;
-}
-
-.admin-btn{
-  padding:14px;
-  background:#6366f1;
-  border:none;
-  border-radius:10px;
-  color:white;
-  font-weight:600;
-  cursor:pointer;
-  transition:0.2s;
-}
-
-.admin-btn:hover{
-  background:#4f46e5;
-}
-
-/* ===== POST LIST ===== */
-
 .admin-post{
-  background:#111827;
-  padding:15px;
-  border-radius:10px;
-  margin-bottom:10px;
+  background:#1e293b;
+  padding:15px 20px;
+  border-radius:12px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  border:1px solid #1e293b;
+}
+
+.admin-post span{
+  font-weight:500;
 }
 
 .delete-btn{
   background:#dc2626;
+}
+
+.delete-btn:hover{
+  background:#b91c1c;
+}
+
+/* ================= HR ================= */
+
+hr{
   border:none;
-  padding:6px 10px;
-  border-radius:6px;
-  color:white;
-  cursor:pointer;
+  border-top:1px solid #1f2937;
+  margin:40px 0;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+  .admin-header{
+    flex-direction:column;
+    gap:10px;
+    align-items:flex-start;
+  }
+
+  .container{
+    padding:30px 15px;
+  }
+
 }
