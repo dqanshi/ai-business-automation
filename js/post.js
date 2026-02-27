@@ -2,31 +2,31 @@ import { db } from "./firebase.js";
 import { doc, getDoc }
 from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-async function loadPost() {
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
 
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get("id");
+async function loadPost() {
 
   if (!id) return;
 
   const docRef = doc(db, "posts", id);
-  const snap = await getDoc(docRef);
+  const docSnap = await getDoc(docRef);
 
-  if (!snap.exists()) return;
+  if (docSnap.exists()) {
 
-  const post = snap.data();
+    const post = docSnap.data();
 
-  document.getElementById("postTitle").textContent = post.title;
-  document.getElementById("postDate").textContent =
-    new Date(post.date).toDateString();
-  document.getElementById("postContent").innerHTML =
-    post.content;
+    document.getElementById("postTitle").textContent = post.title;
+    document.getElementById("postDate").textContent =
+      new Date(post.date).toDateString();
 
-  document.title = post.title + " | AutomateScale";
+    document.getElementById("postContent").innerHTML = post.content;
 
-  // SHOW CONTENT
-  document.querySelector(".post-hero").classList.remove("hidden");
-  document.querySelector(".article-wrapper").classList.remove("hidden");
+    document.title = post.title + " | AutomateScale";
+
+  } else {
+    document.getElementById("postTitle").textContent = "Post not found";
+  }
 }
 
 loadPost();
