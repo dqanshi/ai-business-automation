@@ -23,27 +23,37 @@ body{
 
 .admin-header{
   background:#111827;
-  padding:20px 30px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  padding:25px 20px;
   border-bottom:1px solid #1f2937;
+  position:relative;
 }
 
+/* Center brand perfectly */
 .admin-brand{
-  display:flex;
-  flex-direction:column;
+  text-align:center;
 }
 
 .brand-main{
-  font-size:22px;
-  font-weight:800;
+  display:block;
+  font-size:26px;
+  font-weight:900;
   color:#6366f1;
+  letter-spacing:-0.5px;
 }
 
 .brand-sub{
-  font-size:13px;
+  display:block;
+  font-size:14px;
   color:#94a3b8;
+  margin-top:4px;
+}
+
+/* View Site button floating right */
+.admin-actions{
+  position:absolute;
+  right:20px;
+  top:50%;
+  transform:translateY(-50%);
 }
 
 .view-site{
@@ -53,59 +63,11 @@ body{
   border-radius:8px;
   color:#e2e8f0;
   transition:0.2s;
+  font-size:14px;
 }
 
 .view-site:hover{
   background:#6366f1;
-}
-
-/* ================= TITLES ================= */
-
-h2{
-  margin:40px 0 20px;
-  font-size:22px;
-}
-
-/* ================= STATS ================= */
-
-.stats{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:20px;
-}
-
-.stats div{
-  background:#1e293b;
-  padding:25px;
-  border-radius:14px;
-  font-size:18px;
-}
-
-/* ================= FORM ================= */
-
-input,
-select,
-textarea{
-  width:100%;
-  background:#1e293b;
-  border:1px solid #334155;
-  padding:12px 14px;
-  border-radius:10px;
-  color:#e2e8f0;
-  margin-bottom:18px;
-  font-size:14px;
-}
-
-textarea{
-  min-height:180px;
-  resize:vertical;
-}
-
-input:focus,
-select:focus,
-textarea:focus{
-  outline:none;
-  border-color:#6366f1;
 }
 
 /* ================= BUTTONS ================= */
