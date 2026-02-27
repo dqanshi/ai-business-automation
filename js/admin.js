@@ -75,43 +75,56 @@ async function loadCategories(){
 
 /* ================= BULK AI GENERATOR ================= */
 async function bulkGenerate(topics){
-async function bulkGenerate(topics){
 
   for(const topic of topics){
 
-    const response = await fetch("/api/generate", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ topic })
-    });
+    try {
 
-    const data = await response.json();
+      const response = await fetch("/api/generate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ topic })
+      });
 
-    if (!data.title) {
-      alert("AI failed");
+      if (!response.ok) {
+        const errText = await response.text();
+        alert("API error: " + errText);
+        return;
+      }
+
+      const data = await response.json();
+
+      if (!data.content) {
+        alert("AI did not return content");
+        return;
+      }
+
+      const slug = topic.toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-");
+
+      await addDoc(collection(db,"posts"),{
+        title: topic,
+        meta: topic,
+        content: data.content,
+        status: "published",
+        category: "AI",
+        slug,
+        date: new Date().toISOString()
+      });
+
+    } catch (error) {
+      alert("Error: " + error.message);
+      console.error(error);
       return;
     }
 
-    const slug = data.title.toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/(^-|-$)/g, "");
-
-    await addDoc(collection(db,"posts"),{
-      title: data.title,
-      meta: data.meta,
-      content: data.content,
-      image: `https://source.unsplash.com/1200x600/?${topic.replace(" ","+")}`,
-      related: [],
-      status: "published",
-      category: "AI",
-      slug,
-      date: new Date().toISOString()
-    });
   }
 
-  alert("Full SEO article published");
+  alert("Bulk publishing completed");
   location.reload();
-}
+                       }
 /* ================= CONNECT BULK BUTTON ================= */
 if (bulkBtn) {
   bulkBtn.addEventListener("click", () => {
