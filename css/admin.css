@@ -32,12 +32,9 @@ body{
 }
 
 .brand-main{
-  display:block;
   font-size:28px;
   font-weight:900;
-  background: linear-gradient(90deg,#ffffff,#cbd5e1);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+  color:#111827;   /* professional dark gray */
 }
 
 .brand-sub{
