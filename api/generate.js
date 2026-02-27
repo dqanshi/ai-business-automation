@@ -5,58 +5,60 @@ export default async function handler(req, res) {
   }
 
   try {
-
     const { topic } = req.body;
 
+    if (!topic) {
+      return res.status(400).json({ error: "Topic required" });
+    }
+
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${process.env.GEMINI_API_KEY}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          contents: [{
-            parts: [{
-              text: `
-Create SEO blog content about: ${topic}
+          contents: [
+            {
+              parts: [
+                {
+                  text: `
+Write a complete SEO blog article about "${topic}"
 
-Return ONLY valid JSON in this format:
+Return in JSON format:
 
 {
   "title": "",
   "meta": "",
   "content": "",
-  "image_prompt": ""
+  "image": "",
+  "related": ["", "", ""]
 }
 
-Rules:
-- Title under 60 characters
-- Meta description under 160 characters
-- Content minimum 1000 words
-- Content must use HTML tags (h2, h3, p, ul)
-- Image prompt should describe a professional blog featured image
+Content must be 1200+ words and HTML formatted.
 `
-            }]
-          }]
+                }
+              ]
+            }
+          ]
         })
       }
     );
 
     const data = await response.json();
 
-    const raw = data.candidates?.[0]?.content?.parts?.[0]?.text;
+    const text =
+      data?.candidates?.[0]?.content?.parts?.[0]?.text;
 
-    if (!raw) {
-      return res.status(500).json({ error: "AI failed" });
+    if (!text) {
+      return res.status(500).json({ error: "AI returned empty" });
     }
 
-    // Clean markdown code blocks if Gemini adds them
-    const cleaned = raw.replace(/```json|```/g, "").trim();
+    const parsed = JSON.parse(text);
 
-    const parsed = JSON.parse(cleaned);
+    return res.status(200).json(parsed);
 
-    res.status(200).json(parsed);
-
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ error: "Server error" });
   }
 }
