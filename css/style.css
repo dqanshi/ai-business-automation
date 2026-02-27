@@ -20,6 +20,38 @@ body{
   padding:0 20px;
 }
 
+
+/* ===== CLEAN ARTICLE HEADER (NO BLUE BLOCK) ===== */
+
+.article-header{
+  margin: 70px 0 40px;
+  max-width: 750px;
+}
+
+.article-header h1{
+  font-size: clamp(30px, 5vw, 44px);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  color: #0f172a;
+}
+
+.post-meta-line{
+  margin-top: 12px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* Dark Mode */
+
+.dark .article-header h1{
+  color: #ffffff;
+}
+
+.dark .post-meta-line{
+  color: #94a3b8;
+}
+
 /* ================= NAVBAR ================= */
 
 .navbar{
