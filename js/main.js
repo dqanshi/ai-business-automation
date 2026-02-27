@@ -1,61 +1,84 @@
 import { db } from "./firebase.js";
-import { collection, getDocs }
+import { collection, getDocs } 
 from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-const postsContainer = document.getElementById("posts");
-const featuredContainer = document.getElementById("featuredPost");
-const trendingContainer = document.getElementById("trending");
+/* ---------------- DARK MODE ---------------- */
 
-async function loadPosts(){
-  const snapshot = await getDocs(collection(db,"posts"));
-  let first = true;
+const toggleBtn = document.getElementById("darkToggle");
 
-  snapshot.forEach(doc=>{
-    const post = doc.data();
+if (toggleBtn) {
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
 
-    if(post.status==="published"){
-
-      if(first){
-        featuredContainer.innerHTML = `
-          <div class="card">
-            <img src="${post.image||''}">
-            <h2>
-              <a href="post.html?slug=${post.slug}">
-                ${post.title}
-              </a>
-            </h2>
-            <p>${post.meta||''}</p>
-          </div>
-        `;
-        first = false;
-      }
-
-      postsContainer.innerHTML += `
-        <div class="card">
-          <img src="${post.image||''}">
-          <h3>
-            <a href="post.html?slug=${post.slug}">
-              ${post.title}
-            </a>
-          </h3>
-        </div>
-      `;
-
-      trendingContainer.innerHTML += `
-        <p>
-          <a href="post.html?slug=${post.slug}">
-            ${post.title}
-          </a>
-        </p>
-      `;
+    // Save mode
+    if (document.body.classList.contains("dark")) {
+      localStorage.setItem("theme", "dark");
+    } else {
+      localStorage.setItem("theme", "light");
     }
   });
 }
 
-loadPosts();
+// Load saved mode
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark");
+}
 
-/* DARK MODE */
-document.getElementById("darkToggle")
-.addEventListener("click",()=>{
-  document.body.classList.toggle("dark");
-});
+/* ---------------- LOAD POSTS ---------------- */
+
+const postsContainer = document.getElementById("posts");
+const trendingContainer = document.getElementById("trending");
+
+async function loadPosts() {
+  if (!postsContainer) return;
+
+  const snapshot = await getDocs(collection(db, "posts"));
+
+  let posts = [];
+
+  snapshot.forEach(doc => {
+    const data = doc.data();
+
+    if (data.status === "published") {
+      posts.push({
+        id: doc.id,
+        ...data
+      });
+    }
+  });
+
+  // Sort by newest
+  posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  // LATEST POSTS
+  postsContainer.innerHTML = "";
+  posts.forEach(post => {
+    postsContainer.innerHTML += `
+      <div class="card">
+        <h3>
+          <a href="post.html?id=${post.id}">
+            ${post.title}
+          </a>
+        </h3>
+        <p>${post.meta || ""}</p>
+      </div>
+    `;
+  });
+
+  // TRENDING (first 3)
+  if (trendingContainer) {
+    trendingContainer.innerHTML = "";
+
+    posts.slice(0, 3).forEach(post => {
+      trendingContainer.innerHTML += `
+        <p>
+          <a href="post.html?id=${post.id}">
+            ${post.title}
+          </a>
+        </p>
+      `;
+    });
+  }
+}
+
+loadPosts();
