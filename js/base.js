@@ -1,26 +1,30 @@
-// Dark mode toggle system
+// ================= DARK MODE =================
 
 document.addEventListener("DOMContentLoaded", () => {
 
   const toggle = document.getElementById("darkToggle");
 
-  // Load saved preference
-  if (localStorage.getItem("darkMode") === "true") {
+  // Load saved theme
+  if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark");
   }
 
   if (toggle) {
     toggle.addEventListener("click", () => {
+
       document.body.classList.toggle("dark");
 
-      localStorage.setItem(
-        "darkMode",
-        document.body.classList.contains("dark")
-      );
+      if (document.body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+      } else {
+        localStorage.setItem("theme", "light");
+      }
+
     });
   }
 
 });
+
 
 /* Shrink navbar on scroll */
 
