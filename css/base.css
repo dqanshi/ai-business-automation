@@ -2,6 +2,13 @@
    AUTOMATESCALE — CORE DESIGN SYSTEM
 ========================================= */
 
+html, body{
+  margin:0;
+  padding:0;
+}
+
+
+
 /* ===== RESET ===== */
 
 
