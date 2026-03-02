@@ -48,39 +48,18 @@
 <section class="container main-grid">
 
   <main>
-
     <h2 class="section-title">Latest Articles</h2>
 
-    <div class="posts-grid">
-
-      <!-- CARD 1 -->
-      <a href="post.html" class="card">
-        <img src="https://images.unsplash.com/photo-1556157382-97eda2f9e2bf?q=80&w=1200&auto=format&fit=crop" alt="AI Automation">
-        <div class="card-content">
-          <h3>AI Workflow Automation</h3>
-          <p>How to automate repetitive business systems efficiently.</p>
-        </div>
-      </a>
-
-      <!-- CARD 2 -->
-      <a href="post.html" class="card">
-        <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=1200&auto=format&fit=crop" alt="Business Growth">
-        <div class="card-content">
-          <h3>Scaling with AI Tools</h3>
-          <p>Best AI tools to grow digital businesses in 2026.</p>
-        </div>
-      </a>
-
-    </div>
-
+    <!-- 🔥 THIS MUST EXIST FOR FIREBASE -->
+    <div id="posts" class="posts-grid"></div>
   </main>
 
   <aside class="sidebar">
 
     <div class="sidebar-card">
       <h3>Trending</h3>
-      <p><a href="post.html">AI Marketing Systems</a></p>
-      <p><a href="post.html">Automation Frameworks</a></p>
+      <!-- 🔥 THIS MUST EXIST -->
+      <div id="trending"></div>
     </div>
 
     <div class="sidebar-card newsletter">
@@ -101,17 +80,20 @@
 <script>
 const toggle = document.getElementById("darkToggle");
 
-if(localStorage.getItem("darkMode")==="true"){
+if(localStorage.getItem("theme")==="dark"){
   document.body.classList.add("dark");
 }
 
 toggle.addEventListener("click",()=>{
   document.body.classList.toggle("dark");
-  localStorage.setItem("darkMode",
-    document.body.classList.contains("dark")
+  localStorage.setItem("theme",
+    document.body.classList.contains("dark") ? "dark" : "light"
   );
 });
 </script>
+
+<!-- 🔥 FIREBASE POSTS LOADER -->
+<script type="module" src="js/main.js"></script>
 
 </body>
 </html>
