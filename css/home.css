@@ -1,25 +1,97 @@
-/* ================= SOCIAL BUTTONS ================= */
+/* ================= CONTACT PREMIUM ================= */
 
-.social-buttons{
+.contact-wrapper{
+  padding:80px 20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:40px;
+}
+
+/* Glass Card */
+
+.contact-card{
+  width:100%;
+  max-width:600px;
+  padding:40px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.6);
+  backdrop-filter:blur(12px);
+  box-shadow:0 10px 40px rgba(0,0,0,0.08);
+}
+
+.contact-card h1{
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.contact-sub{
+  color:#64748b;
+  margin-bottom:30px;
+}
+
+/* Form */
+
+.contact-form{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+.contact-form input,
+.contact-form textarea{
+  padding:14px;
+  border-radius:12px;
+  border:1px solid #e2e8f0;
+  font-size:15px;
+  font-family:inherit;
+  transition:0.2s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+  outline:none;
+  border-color:#6366f1;
+  box-shadow:0 0 0 3px rgba(99,102,241,0.15);
+}
+
+.contact-form button{
+  margin-top:10px;
+  padding:14px;
+  border:none;
+  border-radius:12px;
+  background:linear-gradient(135deg,#6366f1,#4f46e5);
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.contact-form button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(99,102,241,0.3);
+}
+
+/* ================= SOCIAL PREMIUM ================= */
+
+.social-premium{
   display:flex;
   flex-wrap:wrap;
+  gap:12px;
   justify-content:center;
-  gap:14px;
-  margin-top:30px;
 }
 
-.social-btn{
-  padding:12px 20px;
+.social{
+  padding:10px 16px;
   border-radius:999px;
   font-size:14px;
-  font-weight:600;
   text-decoration:none;
   color:white;
-  transition:0.3s ease;
-  display:inline-block;
+  font-weight:500;
+  transition:0.25s;
 }
 
-/* Brand Colors */
+/* Brand colors */
 
 .twitter{ background:#1DA1F2; }
 .youtube{ background:#FF0000; }
@@ -29,67 +101,27 @@
   background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);
 }
 
-/* Hover */
-
-.social-btn:hover{
+.social:hover{
   transform:translateY(-3px);
-  box-shadow:0 8px 18px rgba(0,0,0,0.15);
-  opacity:0.95;
-}
-
-
-/* ================= SOCIAL BUTTONS ================= */
-
-.social-buttons{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  justify-content:center;
-  margin-top:30px;
-}
-
-.social-btn{
-  padding:10px 18px;
-  border-radius:999px;
-  font-size:14px;
-  font-weight:600;
-  text-decoration:none;
-  color:white;
-  display:inline-block;
-  transition:0.25s ease;
-}
-
-/* Brand Colors (Auto detect by order) */
-
-.social-btn:nth-child(1){ background:#1DA1F2; }   /* Twitter */
-.social-btn:nth-child(2){ background:#FF0000; }   /* YouTube */
-.social-btn:nth-child(3){ background:#111827; }   /* GitHub */
-.social-btn:nth-child(4){ background:#1877F2; }   /* Facebook */
-.social-btn:nth-child(5){
-  background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);
-} /* Instagram */
-
-/* Hover Effect */
-
-.social-btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 6px 18px rgba(0,0,0,0.2);
-  opacity:0.95;
+  opacity:0.9;
 }
 
 /* ================= DARK MODE SUPPORT ================= */
 
-.dark .social-btn{
-  box-shadow:0 6px 20px rgba(0,0,0,0.4);
+.dark .contact-card{
+  background:rgba(17,24,39,0.7);
+  box-shadow:0 10px 40px rgba(0,0,0,0.4);
 }
 
-/* ================= MOBILE OPTIMIZATION ================= */
+.dark .contact-form input,
+.dark .contact-form textarea{
+  background:#111827;
+  border-color:#334155;
+  color:white;
+}
 
-@media (max-width:500px){
-  .social-btn{
-    font-size:13px;
-    padding:8px 14px;
-  }
+.dark .contact-sub{
+  color:#94a3b8;
 }
 
 
