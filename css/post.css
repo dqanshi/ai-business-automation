@@ -85,3 +85,73 @@ body{
 .dark .ad-box{
   background:#1e293b;
 }
+
+/* ===== NAVBAR STRUCTURE ===== */
+
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  backdrop-filter:blur(14px);
+  background:rgba(255,255,255,0.75);
+  border-bottom:1px solid rgba(0,0,0,0.06);
+}
+
+.nav-container{
+  max-width:1100px;
+  margin:auto;
+  padding:20px;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+}
+
+/* ===== CENTER LOGO ===== */
+
+.logo-wrapper{
+  text-align:center;
+}
+
+.logo{
+  font-size:28px;
+  font-weight:900;
+  letter-spacing:-0.8px;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+}
+
+.brand-accent{
+  background:linear-gradient(135deg,#6366f1,#22d3ee);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-right:4px;
+}
+
+.logo span:last-child{
+  color:#0f172a;
+}
+
+.dark .logo span:last-child{
+  color:white;
+}
+
+/* ===== RIGHT SIDE ===== */
+
+.nav-right{
+  display:flex;
+  justify-content:flex-end;
+}
+
+.theme-btn{
+  background:#f1f5f9;
+  border:none;
+  padding:8px 12px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.dark .theme-btn{
+  background:#1e293b;
+  color:white;
+}
