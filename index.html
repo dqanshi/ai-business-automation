@@ -5,29 +5,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>AutomateScale | AI Automation Blog</title>
-<meta name="description" content="AI automation systems and scalable business frameworks.">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/base.css">
-<link rel="stylesheet" href="/css/home.css">
-<script type="module" src="js/main.js" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="home.css">
+
 </head>
+
 <body>
 
+<!-- ================= NAVBAR ================= -->
 <header class="navbar">
   <div class="nav-container">
-    <div class="logo brand-main">
-  <span class="brand-accent">Automate</span>Scale
+
+    <!-- Left spacer -->
+    <div></div>
+
+    <!-- Center Logo -->
+    <a href="index.html" class="logo">
+      <span class="brand-accent">Automate</span><span>Scale</span>
+    </a>
+
+    <!-- Right side -->
+    <div class="nav-right">
+      <nav class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </nav>
+
+      <button id="darkToggle" class="theme-btn">🌙</button>
     </div>
-    <nav class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
-      <button id="darkToggle">🌙</button>
-    </nav>
+
   </div>
 </header>
 
+
+<!-- ================= HERO ================= -->
 <section class="hero">
   <div class="container hero-inner">
     <h1>AI & Automation Insights That Actually Work</h1>
@@ -39,20 +52,33 @@
   <div class="ad-box">Advertisement</div>
 </section>
 
+
+<!-- ================= MAIN GRID ================= -->
 <section class="container main-grid">
 
-  <main class="main-content">
-
+  <main>
     <h2 class="section-title">Latest Articles</h2>
-    <div id="posts" class="posts-grid"></div>
 
+    <div class="posts-grid">
+
+      <div class="card">
+        <h3>Test</h3>
+        <p>Meta test</p>
+      </div>
+
+      <div class="card">
+        <h3>Test 2</h3>
+        <p>Another article preview</p>
+      </div>
+
+    </div>
   </main>
 
   <aside class="sidebar">
 
     <div class="sidebar-card">
       <h3>Trending</h3>
-      <div id="trending"></div>
+      <p>AI Automation Systems</p>
     </div>
 
     <div class="sidebar-card newsletter">
@@ -68,6 +94,23 @@
 <footer class="footer">
   © 2026 AutomateScale
 </footer>
+
+
+<!-- ================= DARK MODE SCRIPT ================= -->
+<script>
+const toggle = document.getElementById("darkToggle");
+
+if(localStorage.getItem("darkMode")==="true"){
+  document.body.classList.add("dark");
+}
+
+toggle.addEventListener("click",()=>{
+  document.body.classList.toggle("dark");
+  localStorage.setItem("darkMode",
+    document.body.classList.contains("dark")
+  );
+});
+</script>
 
 </body>
 </html>
