@@ -261,3 +261,37 @@ body{
     display:none;
   }
 }
+
+
+
+.page-content{
+  max-width:800px;
+  margin:80px auto;
+  padding:0 20px;
+}
+
+.page-content h1{
+  font-size:32px;
+  margin-bottom:20px;
+}
+
+.page-content h2{
+  margin-top:40px;
+  font-size:22px;
+}
+
+.page-content p{
+  margin-bottom:20px;
+  line-height:1.7;
+  color:#374151;
+}
+
+.page-content ul{
+  margin-top:15px;
+  padding-left:20px;
+  color:#374151;
+}
+
+.page-content li{
+  margin-bottom:8px;
+}
