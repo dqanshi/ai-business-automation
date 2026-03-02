@@ -2,12 +2,31 @@
    AUTOMATESCALE — CORE DESIGN SYSTEM
 ========================================= */
 
-html, body{
-  margin:0;
-  padding:0;
+/* Remove white gap under footer */
+
+html{
+  background:#f6f9fc;   /* light mode background */
 }
 
-body.dark,
+body{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+/* Make main content expand */
+main,
+.main-grid,
+.page-content,
+.post-wrapper{
+  flex:1;
+}
+
+/* Dark mode background fix */
+body.dark{
+  background:#0b1120;
+}
+
 html.dark{
   background:#0b1120;
 }
