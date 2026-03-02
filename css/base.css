@@ -3,18 +3,14 @@
 ========================================= */
 
 html, body{
-  height:100%;
+  margin:0;
+  padding:0;
 }
 
-body{
-  display:flex;
-  flex-direction:column;
+body.dark,
+html.dark{
+  background:#0b1120;
 }
-
-main{
-  flex:1;
-}
-
 
 
 /* ===== RESET ===== */
