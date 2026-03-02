@@ -1,5 +1,5 @@
 import { db } from "./firebase.js";
-import { doc, getDoc } 
+import { doc, getDoc }
 from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const params = new URLSearchParams(window.location.search);
@@ -7,13 +7,13 @@ const id = params.get("id");
 
 async function loadPost() {
 
-  if (!id) {
-    document.getElementById("postContent").innerHTML =
-      "<p>No post ID provided.</p>";
-    return;
-  }
-
   try {
+
+    if (!id) {
+      document.getElementById("postTitle").textContent = "No post ID.";
+      return;
+    }
+
     const docRef = doc(db, "posts", id);
     const docSnap = await getDoc(docRef);
 
@@ -21,29 +21,23 @@ async function loadPost() {
 
       const post = docSnap.data();
 
-      document.getElementById("postTitle").textContent =
-        post.title || "Untitled";
-
+      document.getElementById("postTitle").textContent = post.title;
       document.getElementById("postDate").textContent =
-        post.date?.toDate
-          ? post.date.toDate().toDateString()
-          : new Date(post.date).toDateString();
+        new Date(post.date).toDateString();
 
-      document.getElementById("postContent").innerHTML =
-        post.content || "<p>No content available.</p>";
+      document.getElementById("postContent").innerHTML = post.content;
 
       document.title = post.title + " | AutomateScale";
 
     } else {
-      document.getElementById("postContent").innerHTML =
-        "<p>Post not found.</p>";
+      document.getElementById("postTitle").textContent = "Post not found";
     }
 
   } catch (error) {
     console.error(error);
-    document.getElementById("postContent").innerHTML =
-      "<p>Error loading post.</p>";
+    document.getElementById("postContent").innerHTML = "Error loading post.";
   }
+
 }
 
 loadPost();
