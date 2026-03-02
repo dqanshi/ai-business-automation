@@ -17,25 +17,29 @@ async function loadPost() {
     const docRef = doc(db, "posts", id);
     const docSnap = await getDoc(docRef);
 
-    if (docSnap.exists()) {
-
-      const post = docSnap.data();
-
-      document.getElementById("postTitle").textContent = post.title;
-      document.getElementById("postDate").textContent =
-        new Date(post.date).toDateString();
-
-      document.getElementById("postContent").innerHTML = post.content;
-
-      document.title = post.title + " | AutomateScale";
-
-    } else {
+    if (!docSnap.exists()) {
       document.getElementById("postTitle").textContent = "Post not found";
+      return;
     }
 
+    const post = docSnap.data();
+
+    document.getElementById("postTitle").textContent = post.title || "";
+
+    if (post.date && post.date.toDate) {
+      document.getElementById("postDate").textContent =
+        post.date.toDate().toDateString();
+    }
+
+    document.getElementById("postContent").innerHTML =
+      post.content || "";
+
+    document.title = (post.title || "Post") + " | AutomateScale";
+
   } catch (error) {
-    console.error(error);
-    document.getElementById("postContent").innerHTML = "Error loading post.";
+    console.error("Post load error:", error);
+    document.getElementById("postContent").innerHTML =
+      "Error loading post.";
   }
 
 }
