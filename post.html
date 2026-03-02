@@ -3,30 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Post | AutomateScale</title>
+
+<title id="pageTitle">Post | AutomateScale</title>
 
 <link rel="stylesheet" href="css/post.css">
-<script defer src="js/base.js"></script>
-</head>
 
+<script defer src="js/base.js"></script>
+<script type="module" src="js/post.js"></script>
+
+</head>
 <body>
 
 <!-- ================= NAVBAR ================= -->
-
 <header class="navbar">
   <div class="nav-container">
 
-    <!-- Left Empty (for balance) -->
     <div class="nav-left"></div>
 
-    <!-- Center Logo -->
     <div class="logo-wrapper">
       <a href="index.html" class="logo">
         <span class="brand-accent">Automate</span><span>Scale</span>
       </a>
     </div>
 
-    <!-- Right Side -->
     <div class="nav-right">
       <button id="darkToggle" class="theme-btn">🌙</button>
     </div>
@@ -36,64 +35,29 @@
 
 
 <!-- ================= ARTICLE ================= -->
-
 <main class="post-wrapper">
 
   <article class="post-container">
 
-    <!-- Title -->
-    <h1 class="post-title">Test Article Title</h1>
+    <!-- 🔥 Firebase injects here -->
+    <h1 id="postTitle" class="post-title">Loading...</h1>
 
-    <!-- Meta -->
-    <div class="post-meta">
-      February 27, 2026
-    </div>
+    <div id="postMeta" class="post-meta"></div>
 
     <div class="divider"></div>
 
-    <!-- Top Ad -->
-    <div class="ad-box">
-      Advertisement
+    <div class="ad-box">Advertisement</div>
+
+    <!-- 🔥 Firebase injects content here -->
+    <div id="postContent" class="post-content">
+      <p>Loading article...</p>
     </div>
 
-    <!-- Content -->
-    <div class="post-content">
-
-      <p>
-        This is your article content area. Elite blogs focus on clarity,
-        readability, and strong typography hierarchy.
-      </p>
-
-      <p>
-        Keep spacing clean and avoid clutter. Professional SaaS blogs
-        rely on consistent rhythm and structure.
-      </p>
-
-      <h2>Section Heading</h2>
-
-      <p>
-        Notice the clean margin spacing between paragraphs.
-        The layout should feel calm, breathable, and premium.
-      </p>
-
-      <p>
-        A great article layout does not rely on heavy gradients —
-        it relies on spacing, typography, and hierarchy.
-      </p>
-
-    </div>
-
-    <!-- Bottom Ad -->
-    <div class="ad-box">
-      Advertisement
-    </div>
+    <div class="ad-box">Advertisement</div>
 
   </article>
 
 </main>
-
-
-<!-- ================= FOOTER ================= -->
 
 <footer class="footer">
   © 2026 AutomateScale
