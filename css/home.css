@@ -108,22 +108,6 @@
 
 /* ================= DARK MODE SUPPORT ================= */
 
-.dark .contact-card{
-  background:rgba(17,24,39,0.7);
-  box-shadow:0 10px 40px rgba(0,0,0,0.4);
-}
-
-.dark .contact-form input,
-.dark .contact-form textarea{
-  background:#111827;
-  border-color:#334155;
-  color:white;
-}
-
-.dark .contact-sub{
-  color:#94a3b8;
-}
-
 
 
 
