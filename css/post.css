@@ -53,31 +53,34 @@ body{
   text-align:center;
 }
 
-/* ===== ULTRA CLEAN FOOTER ===== */
+/* ===== REMOVE GAP ABOVE FOOTER ===== */
 
+.post-wrapper{
+  padding-bottom:0 !important;
+  margin-bottom:0 !important;
+}
+
+.post-container{
+  margin-bottom:0 !important;
+}
+
+/* Make footer stick directly after content */
 .footer{
   background:#0b1120;
   color:#94a3b8;
   text-align:center;
-  padding:14px 8px;     /* smaller */
   font-size:12px;
-  margin:0;             /* remove gaps */
-  border-top:1px solid rgba(255,255,255,0.05); /* very thin */
+  padding:12px 10px;
+  margin-top:0;
+  border-top:1px solid rgba(255,255,255,0.04);
 }
 
-/* Remove white gap above footer */
-.post-wrapper{
-  margin-bottom:0;
-  padding-bottom:0;
+/* Remove global spacing */
+body{
+  margin:0;
 }
 
-/* Remove any container bottom spacing */
-main{
-  margin-bottom:0;
-}
-
-
-/*==== darkbmode =====*/
+/*=========== darkbmode ===============*/
 
 .dark{
   background:#0b1120;
