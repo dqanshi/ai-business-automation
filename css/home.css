@@ -200,8 +200,7 @@ body{
 
 .hero{
   position:relative;
-  overflow:hidden;
-  padding:120px 20px;
+  padding:80px 20px;   /* reduced from 120px */
   text-align:center;
   color:white;
   background:
@@ -210,12 +209,6 @@ body{
     linear-gradient(135deg,#6366f1,#4f46e5,#7c3aed);
   background-size:200% 200%;
   animation:heroShift 12s ease infinite;
-}
-
-@keyframes heroShift{
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
 }
 
 /* ===== GRID ===== */
