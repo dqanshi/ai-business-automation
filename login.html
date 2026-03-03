@@ -1,20 +1,154 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admin Login | AutomateScale</title>
-<link rel="stylesheet" href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== RESET ===== */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:
+    radial-gradient(circle at 20% 30%, #6366f1 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, #22d3ee 0%, transparent 40%),
+    #0b1120;
+  overflow:hidden;
+}
+
+/* ===== LOGIN CARD ===== */
+
+.login-card{
+  width:100%;
+  max-width:420px;
+  padding:45px 40px;
+  border-radius:24px;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,0.1);
+  box-shadow:0 20px 60px rgba(0,0,0,0.4);
+  color:white;
+}
+
+/* ===== BRAND ===== */
+
+.brand{
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.brand h1{
+  font-size:26px;
+  font-weight:900;
+  letter-spacing:-0.8px;
+}
+
+.brand span{
+  background:linear-gradient(135deg,#6366f1,#22d3ee);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* ===== INPUTS ===== */
+
+.input-group{
+  margin-bottom:18px;
+}
+
+.input-group input{
+  width:100%;
+  padding:14px 16px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.2);
+  background:rgba(255,255,255,0.05);
+  color:white;
+  font-size:15px;
+  outline:none;
+  transition:0.25s;
+}
+
+.input-group input::placeholder{
+  color:rgba(255,255,255,0.6);
+}
+
+.input-group input:focus{
+  border-color:#6366f1;
+  box-shadow:0 0 0 3px rgba(99,102,241,0.3);
+}
+
+/* ===== BUTTON ===== */
+
+.login-btn{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:14px;
+  background:linear-gradient(135deg,#6366f1,#4f46e5);
+  color:white;
+  font-weight:600;
+  font-size:15px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.login-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 25px rgba(99,102,241,0.4);
+}
+
+/* ===== FOOTER TEXT ===== */
+
+.login-footer{
+  margin-top:25px;
+  text-align:center;
+  font-size:13px;
+  opacity:0.6;
+}
+
+</style>
+
 <script type="module" src="js/auth.js"></script>
+
 </head>
 <body>
 
-<div class="login-container">
-  <h2>Admin Login</h2>
+<div class="login-card">
 
-  <input id="email" placeholder="Email">
-  <input id="password" type="password" placeholder="Password">
+  <div class="brand">
+    <h1><span>Automate</span>Scale</h1>
+    <p>Admin Access</p>
+  </div>
 
-  <button id="loginBtn">Login</button>
+  <div class="input-group">
+    <input id="email" type="email" placeholder="Admin Email">
+  </div>
+
+  <div class="input-group">
+    <input id="password" type="password" placeholder="Password">
+  </div>
+
+  <button id="loginBtn" class="login-btn">
+    Secure Login
+  </button>
+
+  <div class="login-footer">
+    Protected Admin Area
+  </div>
+
 </div>
 
 </body>
