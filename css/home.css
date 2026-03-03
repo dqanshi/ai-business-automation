@@ -199,21 +199,23 @@ body{
 /* ===== HERO ===== */
 
 .hero{
-  background:linear-gradient(135deg,#6366f1,#4f46e5);
-  padding:100px 20px;
+  position:relative;
+  overflow:hidden;
+  padding:120px 20px;
   text-align:center;
   color:white;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.15), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.1), transparent 40%),
+    linear-gradient(135deg,#6366f1,#4f46e5,#7c3aed);
+  background-size:200% 200%;
+  animation:heroShift 12s ease infinite;
 }
 
-.hero h1{
-  font-size:clamp(32px,5vw,48px);
-  font-weight:800;
-  margin-bottom:20px;
-}
-
-.hero p{
-  font-size:18px;
-  opacity:0.9;
+@keyframes heroShift{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
 }
 
 /* ===== GRID ===== */
