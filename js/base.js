@@ -1,49 +1,54 @@
-// ================= DARK MODE =================
+/* ================= THEME SYSTEM ================= */
 
+/* Apply saved theme instantly (prevents white flash) */
+(function () {
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    document.documentElement.classList.add("dark");
+  }
+})();
+
+/* After page loads */
 document.addEventListener("DOMContentLoaded", () => {
 
+  /* ===== Dark Mode Toggle ===== */
   const toggle = document.getElementById("darkToggle");
-
-  // Load saved theme
-  if (localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("dark");
-  }
 
   if (toggle) {
     toggle.addEventListener("click", () => {
 
-      document.body.classList.toggle("dark");
+      document.documentElement.classList.toggle("dark");
 
-      if (document.body.classList.contains("dark")) {
-        localStorage.setItem("theme", "dark");
-      } else {
-        localStorage.setItem("theme", "light");
-      }
+      localStorage.setItem(
+        "theme",
+        document.documentElement.classList.contains("dark")
+          ? "dark"
+          : "light"
+      );
 
     });
   }
 
-});
+  /* ===== Navbar Shrink On Scroll ===== */
+  const navbar = document.getElementById("navbar");
 
-
-/* Shrink navbar on scroll */
-
-const navbar = document.getElementById("navbar");
-
-window.addEventListener("scroll", () => {
-  if(window.scrollY > 50){
-    navbar.classList.add("shrink");
-  }else{
-    navbar.classList.remove("shrink");
+  if (navbar) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add("shrink");
+      } else {
+        navbar.classList.remove("shrink");
+      }
+    });
   }
+
+  /* ===== Search Expand ===== */
+  const searchWrapper = document.getElementById("searchWrapper");
+
+  if (searchWrapper) {
+    searchWrapper.addEventListener("click", () => {
+      searchWrapper.classList.toggle("active");
+    });
+  }
+
 });
-
-/* Search expand */
-
-const searchWrapper = document.getElementById("searchWrapper");
-
-if(searchWrapper){
-  searchWrapper.addEventListener("click", () => {
-    searchWrapper.classList.toggle("active");
-  });
-}
